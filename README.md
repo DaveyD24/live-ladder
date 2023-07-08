@@ -13,7 +13,7 @@ Use the [Issues](https://github.com/DaveyD24/live-ladder/issues) tab to suggest 
 
 ## How to Create an Issue
 To create an issue, simply:
-- Navigate to the [Issues](https://github.com/DaveyD24/live-ladder/issues) tab and click Create an [Issues](https://github.com/DaveyD24/live-ladder/issues/new).
+- Navigate to the [Issues](https://github.com/DaveyD24/live-ladder/issues) tab and click [Create an Issue](https://github.com/DaveyD24/live-ladder/issues/new).
 - Give the issue a label of either bug or enhancement (feature).
 - Title the issue appropriately and describe the issue
 
