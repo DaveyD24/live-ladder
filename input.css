@@ -8,3 +8,5 @@
     --font-geist: 'Geist', 'sans-serif';
     --font-inter: 'Inter', sans-serif; 
 }
+
+@custom-variant dark (&:where(.dark, .dark *))
