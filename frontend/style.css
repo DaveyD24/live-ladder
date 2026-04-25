@@ -7,12 +7,18 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-200: oklch(88.5% 0.062 18.334);
-    --color-cyan-500: oklch(71.5% 0.143 215.221);
-    --color-blue-500: oklch(62.3% 0.214 259.815);
-    --color-neutral-500: oklch(55.6% 0 0);
+    --color-red-400: oklch(70.4% 0.191 22.216);
+    --color-slate-100: oklch(96.8% 0.007 247.896);
+    --color-slate-300: oklch(86.9% 0.022 252.894);
+    --spacing: 0.25rem;
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --font-weight-bold: 700;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --font-inter: 'Inter', sans-serif;
   }
 }
 @layer base {
@@ -164,6 +170,27 @@
   }
 }
 @layer utilities {
+  .absolute {
+    position: absolute;
+  }
+  .sticky {
+    position: sticky;
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
+  .top-4 {
+    top: calc(var(--spacing) * 4);
+  }
+  .right-10 {
+    right: calc(var(--spacing) * 10);
+  }
+  .flex {
+    display: flex;
+  }
+  .hidden {
+    display: none;
+  }
   .table {
     display: table;
   }
@@ -173,21 +200,38 @@
   .resize {
     resize: both;
   }
+  .items-center {
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .bg-red-200 {
-    background-color: var(--color-red-200);
+  .bg-red-400 {
+    background-color: var(--color-red-400);
   }
-  .text-blue-500 {
-    color: var(--color-blue-500);
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
   }
-  .text-cyan-500 {
-    color: var(--color-cyan-500);
+  .text-center {
+    text-align: center;
   }
-  .text-neutral-500 {
-    color: var(--color-neutral-500);
+  .font-inter {
+    font-family: var(--font-inter);
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .text-slate-100 {
+    color: var(--color-slate-100);
   }
   .underline {
     text-decoration-line: underline;
@@ -196,11 +240,34 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .select-none {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .group-hover\:stroke-slate-300 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        stroke: var(--color-slate-300);
+      }
+    }
+  }
 }
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
 @property --tw-border-style {
   syntax: "*";
   inherits: false;
   initial-value: solid;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
 }
 @property --tw-outline-style {
   syntax: "*";
@@ -211,6 +278,7 @@
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
+      --tw-font-weight: initial;
       --tw-outline-style: solid;
     }
   }
