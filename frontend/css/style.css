@@ -326,6 +326,12 @@
   .max-w-140 {
     max-width: calc(var(--spacing) * 140);
   }
+  .min-w-2 {
+    min-width: calc(var(--spacing) * 2);
+  }
+  .min-w-2\.5 {
+    min-width: calc(var(--spacing) * 2.5);
+  }
   .min-w-\[560px\] {
     min-width: 560px;
   }
