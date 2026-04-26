@@ -1,6 +1,7 @@
 function scrollToEnd() {
-    const col = document.getElementById("stats-col");
-    col.scrollLeft = col.scrollWidth;
+    document.querySelectorAll(".stats-col").forEach(row => {
+        row.scrollLeft = row.scrollWidth
+    })
 }
 window.addEventListener("load", scrollToEnd);
 window.addEventListener("resize", scrollToEnd);
