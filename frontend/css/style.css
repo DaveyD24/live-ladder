@@ -13,6 +13,7 @@
     --color-slate-200: oklch(92.9% 0.013 255.508);
     --color-zinc-50: oklch(98.5% 0 0);
     --color-zinc-100: oklch(96.7% 0.001 286.375);
+    --color-neutral-600: oklch(43.9% 0 0);
     --color-neutral-950: oklch(14.5% 0 0);
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -26,6 +27,7 @@
     --tracking-tight: -0.025em;
     --tracking-widest: 0.1em;
     --radius-sm: 0.25rem;
+    --radius-lg: 0.5rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -377,6 +379,9 @@
   .overflow-x-auto {
     overflow-x: auto;
   }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
   .rounded-l-sm {
     border-top-left-radius: var(--radius-sm);
     border-bottom-left-radius: var(--radius-sm);
@@ -392,6 +397,17 @@
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
+  }
+  .border-t {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .border-slate-200 {
+    border-color: var(--color-slate-200);
   }
   .bg-green-100 {
     background-color: var(--color-green-100);
@@ -463,6 +479,11 @@
       @media (hover: hover) {
         cursor: pointer;
       }
+    }
+  }
+  .dark\:border-neutral-600 {
+    &:where(.dark, .dark *) {
+      border-color: var(--color-neutral-600);
     }
   }
   .dark\:bg-neutral-950 {
