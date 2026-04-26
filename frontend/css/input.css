@@ -9,4 +9,12 @@
     --font-inter: 'Inter', sans-serif; 
 }
 
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @custom-variant dark (&:where(.dark, .dark *))
+
