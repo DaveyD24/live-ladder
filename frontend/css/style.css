@@ -22,6 +22,8 @@
     --color-zinc-100: oklch(96.7% 0.001 286.375);
     --color-neutral-400: oklch(70.8% 0 0);
     --color-neutral-600: oklch(43.9% 0 0);
+    --color-neutral-700: oklch(37.1% 0 0);
+    --color-neutral-800: oklch(26.9% 0 0);
     --color-neutral-950: oklch(14.5% 0 0);
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -607,6 +609,12 @@
       line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
   }
+  .md\:text-xl {
+    @media (width >= 768px) {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+  }
   .lg\:mr-4 {
     @media (width >= 1200px) {
       margin-right: calc(var(--spacing) * 4);
@@ -751,6 +759,16 @@
   .dark\:border-neutral-600 {
     &:where(.dark, .dark *) {
       border-color: var(--color-neutral-600);
+    }
+  }
+  .dark\:border-neutral-700 {
+    &:where(.dark, .dark *) {
+      border-color: var(--color-neutral-700);
+    }
+  }
+  .dark\:bg-neutral-800 {
+    &:where(.dark, .dark *) {
+      background-color: var(--color-neutral-800);
     }
   }
   .dark\:bg-neutral-950 {
