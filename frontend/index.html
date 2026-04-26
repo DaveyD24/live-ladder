@@ -25,10 +25,13 @@
             <path d="M11.5 7L9 4.5L11.5 2L14 4.5L11.5 7Z" fill="#ffffff"/>
         </svg>
     </header>
-    <div class="bg-slate-100 dark:bg-neutral-950 w-full h-full flex py-10">
+    <main class="bg-slate-100 dark:bg-neutral-950 w-full h-full flex gap-8
+                flex-col items-center
+                desktop:flex-row desktop:py-10 desktop:items-start">
         
         <!-- Ladder -->
-        <section class="relative w-7/10 ml-10 py-10 flex flex-col font-geist">
+        <section class="relative w-9/10 py-10 flex flex-col font-geist 
+                        desktop:max-w-325 desktop:ml-10">
             <!-- Points Header -->
             <div class="flex flex-row">
                 <span class="inline-block min-w-[320px]"></span>
@@ -72,15 +75,17 @@
         </section>
         
         <!-- Games -->
-        <section class="w-200 py-10 font-geist flex flex-col justify-start items-center gap-4">
-             <div class="w-9/10 flex flex-col items-center justify-center rounded-lg border border-slate-200">
+        <section class="w-95/100 pb-10 font-geist flex flex-col justify-start items-center gap-4
+                        lg:max-desktop:grid lg:grid-cols-2 lg:grid-rows-4 lg:gap-y-6 lg:place-items-center
+                        desktop:pt-10 desktop:grid-none desktop:w-full">
+             <div class="w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200">
                 <span class="flex justify-between w-full px-4 py-2 bg-gray-100">COMPLETED</span>
                 <div class="flex items-center justify-between px-6 py-4 w-full bg-white">
                     <div class="flex items-center">
                         <img class="w-18" src="image/broncos.png"/>
                         <div class="flex flex-col">
                             <p>HOME</p>
-                            <p>BRONCOS</p>
+                            <p>HORNETS</p>
                         </div>
                     </div>
                     <div>
@@ -91,7 +96,7 @@
                     <div class="flex items-center">
                         <div class="flex flex-col">
                             <p>HOME</p>
-                            <p>BRONCOS</p>
+                            <p>HORNETS</p>
                         </div>
                         <img class="w-18" src="image/broncos.png"/>
                     </div>

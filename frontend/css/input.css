@@ -6,7 +6,10 @@
 @theme {
     --font-Lato: "Lato", sans-serif;
     --font-geist: 'Geist', 'sans-serif';
-    --font-inter: 'Inter', sans-serif; 
+    --font-inter: 'Inter', sans-serif;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1200px;
+    --breakpoint-desktop: 1650px;
 }
 
 @utility no-scrollbar {
