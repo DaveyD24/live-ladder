@@ -20,7 +20,7 @@ app.use('/', pingRoute);
 app.listen(PORT, async () => {
     console.log(`Server running on port ${PORT}`);
 
-    // Cache.data.ladder = await fetchLadderForRound(CurrentRound()-1)
+    Cache.data.ladder = await fetchLadderForRound(CurrentRound()-1)
     const roundData = await fetchGamesForRound(CurrentRound());
     roundData.games.forEach(game => { Cache.data.games.push(game); });
     roundData.byes.forEach(bye => { Cache.data.byes.push(bye); });
@@ -30,7 +30,7 @@ app.listen(PORT, async () => {
             console.log("No active client. API call aborted");
             return;
         }
-        // Cache.data.ladder = await fetchLadderForRound(CurrentRound()-1)
+        Cache.data.ladder = await fetchLadderForRound(CurrentRound()-1)
         const roundData = await fetchGamesForRound(CurrentRound());
         roundData.games.forEach(game => { Cache.data.games.push(game); });
         roundData.byes.forEach(bye => { Cache.data.byes.push(bye); });

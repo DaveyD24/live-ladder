@@ -41,7 +41,25 @@ export function parseRound(json) {
 }
 
 export function parseLadder(json) {
-    
+    let teams = []
+    for (const position of json["positions"]) {
+        teams.push({
+            localName: PrefixOf(position["teamNickname"]),
+            teamName: position["teamNickname"] === "Wests Tigers" ? "Tigers" : position["teamNickname"],
+            gamesPlayed: position["stats"]["played"],
+            wins: position["stats"]["wins"],
+            draws: position["stats"]["drawn"],
+            losses: position["stats"]["lost"],
+            byes: position["stats"]["byes"],
+            pointsFor: position["stats"]["points for"],
+            poinstAgainst: position["stats"]["poinst against"],
+            differential: position["stats"]["points difference"],
+            points: position["stats"]["points"]
+        });
+    }
+    return {
+        "teams": teams
+    }
 }
 
 function PrefixOf(teamName) {
