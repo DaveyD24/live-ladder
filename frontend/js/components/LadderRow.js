@@ -23,7 +23,7 @@ function render(team) {
         <div class="relative flex flex-row justify-start items-center h-12 desktop:h-16 bg-white dark:bg-neutral-950 border border-slate-200 dark:border-neutral-600 rounded-bl-lg rounded-tl-lg rounded-tr-lg rounded-br-lg">
             <div class="flex flex-row h-full justify-start items-center min-w-52 md:min-w-80 lg:min-w-96 desktop:min-w-85">
                 <span class="h-12 desktop:h-16 min-w-2.5 rounded-l-sm inline-block ${colourPairs[team.localName]}"></span>
-                <img src="image/broncos.png" class="w-8.75 desktop:w-12.5 ml-2 mr-2 lg:ml-4 lg:mr-4">
+                <img src="image/${team.teamName.replace(" ", "").toLowerCase()}.png" class="w-8.75 desktop:w-12.5 ml-2 mr-2 lg:ml-4 lg:mr-4">
                 <span class="md:hidden lg:text-xl font-bold tracking-tight dark:text-zinc-50 mr-2">${team.shorthand ?? team.localName.toUpperCase()}</span>
                 <span class="hidden md:block lg:text-xl font-bold tracking-tight dark:text-zinc-50 mr-2">${team.localName.toUpperCase()}</span>
                 <span class="text-xs lg:text-sm tracking-widest dark:text-zinc-100">${team.teamName.toUpperCase()}</span>

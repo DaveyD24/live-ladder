@@ -7,7 +7,7 @@ function render(game) {
             </div>
             <div class="flex items-center justify-between px-3 md:px-6 py-4 w-full bg-white dark:bg-neutral-950">
                 <div class="flex items-center">
-                    <img class="w-12 md:w-18" src="image/broncos.png"/>
+                    <img class="w-12 md:w-18 mr-4" src="image/${game.homeTeam.teamName.replace(" ", "").toLowerCase()}.png"/>
                     <div class="flex flex-col">
                         <p class="text-sm text-slate-400 dark:text-neutral-400 font-bold">HOME</p>
                         <p class="font-bold text-md dark:text-zinc-50 leading-none">${game.homeTeam.threeLetterCode}</p>
@@ -23,7 +23,7 @@ function render(game) {
                         <p class="text-sm text-slate-400 dark:text-neutral-400 font-bold">AWAY</p>
                         <p class="font-bold text-md dark:text-zinc-50 leading-none">${game.awayTeam.threeLetterCode}</p>
                     </div>
-                    <img class="w-12 md:w-18" src="image/broncos.png"/>
+                    <img class="w-12 md:w-18 ml-4" src="image/${game.awayTeam.teamName.replace(" ", "").toLowerCase()}.png"/>
                 </div>
             </div>
             <div class="flex justify-center items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-neutral-800 w-full rounded-bl-lg rounded-br-lg text-xs text-slate-500 dark:text-neutral-400">
