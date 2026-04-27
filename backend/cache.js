@@ -1,5 +1,9 @@
 export let data = {
-    ladder: [],
+    ladder: {
+        points: [],
+        wins: [],
+        percent: []
+    },      
     games: [],
     byes: []
 }

@@ -9,7 +9,6 @@ window.addEventListener("resize", scrollToEnd);
 export function addScrollListeners() {
     let isSyncing = false;
     const rows = document.querySelectorAll(".stats-col");
-    console.log(rows);
     rows.forEach(row => {
         row.addEventListener("scroll", () => {
             if (isSyncing) {

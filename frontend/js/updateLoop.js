@@ -4,12 +4,17 @@ import LiveGame from "./components/LiveGame.js";
 import LadderRow from "./components/LadderRow.js";
 import { addScrollListeners } from "./ladderScroll.js";
 
+if (localStorage.getItem("sort") === null) {
+    localStorage.setItem("sort", "points");
+}
+
 fetchGames();
 setInterval(fetchGames, 6000);
 
-async function fetchGames() {
+export async function fetchGames() {
+    const sortKey = localStorage.getItem("sort");
     let jsonData = {};
-    await fetch("http://localhost:3000/data")
+    await fetch(`http://localhost:3000/data?sort=${sortKey}`)
         .then(res => res.json())
         .then(data => jsonData = data)
     generateLadder(jsonData);
@@ -29,6 +34,7 @@ function generateLadder(jsonData) {
     const rows = ladderRowContainer.querySelectorAll(".stats-col");
     rows[rows.length-1].classList.remove("no-scrollbar");
     addScrollListeners();
+    addHeaderListeners();
 }
 
 function generateGames(jsonData) {
@@ -41,4 +47,30 @@ function generateGames(jsonData) {
             default: gamesContainer.innerHTML += LiveGame(game); break;
         }
     })
+}
+
+function addHeaderListeners() {
+    const winBtn = document.getElementById("win-sort");
+    const percentBtn = document.getElementById("percent-sort");
+    const pointsBtn = document.getElementById("points-sort");
+    winBtn.addEventListener("click", async () => {
+        changeSortOrder("wins");
+        await fetchGames();
+    })
+    percentBtn.addEventListener("click", async () => {
+        changeSortOrder("percent");
+        await fetchGames();
+    })
+    pointsBtn.addEventListener("click", async () => {
+        changeSortOrder("points");
+        await fetchGames();
+    })
+}
+
+async function changeSortOrder(key) {
+    if (key !== "points" && key !== "wins" && key !== "percent") {
+        return;
+    }
+    localStorage.setItem("sort", key);
+    await fetchGames();
 }
