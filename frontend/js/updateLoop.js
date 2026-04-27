@@ -2,6 +2,7 @@ import CompletedGame from "./components/CompletedGame.js";
 import UpcomingGame from "./components/UpcomingGame.js";
 import LiveGame from "./components/LiveGame.js";
 import LadderRow from "./components/LadderRow.js";
+import { addScrollListeners } from "./ladderScroll.js";
 
 fetchGames();
 setInterval(fetchGames, 6000);
@@ -27,6 +28,7 @@ function generateLadder(jsonData) {
     ladderRowContainer.children[8].classList.add("mb-4")
     const rows = ladderRowContainer.querySelectorAll(".stats-col");
     rows[rows.length-1].classList.remove("no-scrollbar");
+    addScrollListeners();
 }
 
 function generateGames(jsonData) {
