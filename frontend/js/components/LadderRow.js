@@ -31,15 +31,15 @@ function render(team) {
             <span class="bg-white dark:bg-neutral-950 ml-8 h-12 desktop:h-16 inline-block w-[calc(100%-900px)] border-t border-b border-slate-200 dark:border-neutral-600"></span>
             <ul class="stats-col h-12 desktop:h-16 flex flex-nowrap overflow-x-auto w-full max-w-140 dark:text-zinc-100 no-scrollbar">
                 <li class="h-full flex flex-none justify-center items-center w-14">${team.gamesPlayed}</li>
-                <li class="h-full flex flex-none justify-center items-center w-14">${team.wins}</li>
+                <li class="h-full flex flex-none justify-center items-center w-14 font-bold text-red-500 dark:text-red-400">${team.wins}</li>
                 <li class="h-full flex flex-none justify-center items-center w-14">${team.draws}</li>
                 <li class="h-full flex flex-none justify-center items-center w-14">${team.losses}</li>
                 <li class="h-full flex flex-none justify-center items-center w-14">${team.byes}</li>
                 <li class="h-full flex flex-none justify-center items-center w-14">${team.pointsFor}</li>
                 <li class="h-full flex flex-none justify-center items-center w-14">${team.pointsAgainst}</li>
                 <li class="h-full flex flex-none justify-center items-center w-14">${team.differential}</li>
-                <li class="h-full flex flex-none justify-center items-center w-14">${team.winPercent + "%"}</li>
-                <li class="h-full flex flex-none justify-center items-center w-14 font-bold">${team.points}</li>
+                <li class="h-full flex flex-none justify-center items-center w-14 font-bold text-red-500 dark:text-red-400">${team.winPercent + "%"}</li>
+                <li class="h-full flex flex-none justify-center items-center w-14 font-bold text-red-500 dark:text-red-400">${team.points}</li>
             </ul>
         </div>
     `;
