@@ -145,6 +145,8 @@ function DeconstructKickOffLong(kickOffLong) {
     };
 }
 function DetermineMatchState({minutes, seconds}) {
+    const states = ["UPCOMING", "GOLDENPOINT", "HALFTIME", "PROGRESS", "COMPLETED"];
+    return states[Math.floor(Math.random()* states.length)];
     if (parseInt(minutes) === 0 && parseInt(seconds) === 0) {
         return "UPCOMING";
     }

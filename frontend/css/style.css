@@ -10,9 +10,13 @@
     --color-red-400: oklch(70.4% 0.191 22.216);
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-600: oklch(57.7% 0.245 27.325);
+    --color-orange-200: oklch(90.1% 0.076 70.697);
     --color-orange-300: oklch(83.7% 0.128 66.29);
     --color-orange-400: oklch(75% 0.183 55.934);
     --color-orange-900: oklch(40.8% 0.123 38.172);
+    --color-amber-200: oklch(92.4% 0.12 95.746);
+    --color-amber-300: oklch(87.9% 0.169 91.605);
+    --color-amber-400: oklch(82.8% 0.189 84.429);
     --color-amber-800: oklch(47.3% 0.137 46.201);
     --color-yellow-300: oklch(90.5% 0.182 98.111);
     --color-yellow-400: oklch(85.2% 0.199 91.936);
@@ -440,8 +444,20 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
   }
+  .border-amber-400 {
+    border-color: var(--color-amber-400);
+  }
   .border-slate-200 {
     border-color: var(--color-slate-200);
+  }
+  .bg-amber-200 {
+    background-color: var(--color-amber-200);
+  }
+  .bg-amber-300 {
+    background-color: var(--color-amber-300);
+  }
+  .bg-amber-400 {
+    background-color: var(--color-amber-400);
   }
   .bg-amber-800 {
     background-color: var(--color-amber-800);
@@ -457,6 +473,9 @@
   }
   .bg-green-500 {
     background-color: var(--color-green-500);
+  }
+  .bg-orange-200 {
+    background-color: var(--color-orange-200);
   }
   .bg-orange-300 {
     background-color: var(--color-orange-300);
@@ -579,6 +598,12 @@
   }
   .text-neutral-400 {
     color: var(--color-neutral-400);
+  }
+  .text-orange-300 {
+    color: var(--color-orange-300);
+  }
+  .text-orange-400 {
+    color: var(--color-orange-400);
   }
   .text-red-400 {
     color: var(--color-red-400);
@@ -803,6 +828,11 @@
       height: calc(var(--spacing) * 16);
     }
   }
+  .desktop\:h-20 {
+    @media (width >= 1650px) {
+      height: calc(var(--spacing) * 20);
+    }
+  }
   .desktop\:w-12\.5 {
     @media (width >= 1650px) {
       width: calc(var(--spacing) * 12.5);
@@ -908,6 +938,16 @@
   .dark\:text-neutral-400 {
     &:where(.dark, .dark *) {
       color: var(--color-neutral-400);
+    }
+  }
+  .dark\:text-orange-300 {
+    &:where(.dark, .dark *) {
+      color: var(--color-orange-300);
+    }
+  }
+  .dark\:text-orange-400 {
+    &:where(.dark, .dark *) {
+      color: var(--color-orange-400);
     }
   }
   .dark\:text-zinc-50 {

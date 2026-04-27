@@ -3,7 +3,7 @@ function render(game) {
         <div class="w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700">
             <div class="flex justify-between w-full px-4 py-2 bg-gray-100 dark:bg-neutral-800 rounded-tr-lg rounded-tl-lg">
                 <span class="text-sm md:text-md text-red-500 font-bold">LIVE</span>
-                <span class="text-sm md:text-md text-gray-700 dark:text-zinc-50 font-bold">${game.matchState === "PROGRESS" ? (game.progress.minutes + ":" + game.progress.seconds) : game.matchState}</span>
+                <span class="text-sm md:text-md ${game.matchState === "GOLDENPOINT" ? 'text-orange-400 dark:text-orange-300' : ('text-gray-700 dark:text-zinc-50')}  font-bold">${game.matchState === "PROGRESS" ? (game.progress.minutes + ":" + game.progress.seconds) : game.matchState}</span>
             </div>
             <div class="flex items-center justify-between px-3 md:px-6 py-4 w-full bg-white dark:bg-neutral-950">
                 <div class="flex items-center">
