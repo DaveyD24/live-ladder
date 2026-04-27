@@ -23,6 +23,7 @@ function generateLadder(jsonData) {
     jsonData.ladder.teams.forEach(team => {
         ladderRowContainer.innerHTML += LadderRow(team);
     })
+    ladderRowContainer.children[1].classList.remove("rounded-tr-lg");
 }
 
 function generateGames(jsonData) {
