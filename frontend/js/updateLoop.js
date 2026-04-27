@@ -24,6 +24,8 @@ function generateLadder(jsonData) {
         ladderRowContainer.innerHTML += LadderRow(team);
     })
     ladderRowContainer.children[1].classList.remove("rounded-tr-lg");
+    const rows = ladderRowContainer.querySelectorAll(".stats-col");
+    rows[rows.length-1].classList.remove("no-scrollbar");
 }
 
 function generateGames(jsonData) {
