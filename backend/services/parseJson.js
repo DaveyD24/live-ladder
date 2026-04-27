@@ -57,6 +57,7 @@ export function parseLadder(json) {
             pointsFor: position["stats"]["points for"],
             pointsAgainst: position["stats"]["points against"],
             differential: position["stats"]["points difference"],
+            winPercent: 0,
             points: position["stats"]["points"]
         });
     }

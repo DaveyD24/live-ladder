@@ -14,9 +14,9 @@ function render(game) {
                     </div>
                 </div>
                 <div class="flex items-center gap-2 font-inter">
-                    <span class="text-2xl md:text-5xl font-bold text-red-500">${game.homeTeam.score}</span>
+                    <span class="text-2xl md:text-4xl font-bold text-red-500">${game.homeTeam.score}</span>
                     <span class="text-xl md:text-2xl text-slate-300 dark:text-neutral-400">-</span>
-                    <span class="text-2xl md:text-5xl font-bold text-red-500">${game.awayTeam.score}</span>
+                    <span class="text-2xl md:text-4xl font-bold text-red-500">${game.awayTeam.score}</span>
                 </div>
                 <div class="flex items-center">
                     <div class="flex flex-col items-end">

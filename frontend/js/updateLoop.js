@@ -24,6 +24,7 @@ function generateLadder(jsonData) {
         ladderRowContainer.innerHTML += LadderRow(team);
     })
     ladderRowContainer.children[1].classList.remove("rounded-tr-lg");
+    ladderRowContainer.children[8].classList.add("mb-4")
     const rows = ladderRowContainer.querySelectorAll(".stats-col");
     rows[rows.length-1].classList.remove("no-scrollbar");
 }

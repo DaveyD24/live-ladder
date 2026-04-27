@@ -38,8 +38,8 @@ function render(team) {
                 <li class="h-full flex flex-none justify-center items-center w-14">${team.pointsFor}</li>
                 <li class="h-full flex flex-none justify-center items-center w-14">${team.pointsAgainst}</li>
                 <li class="h-full flex flex-none justify-center items-center w-14">${team.differential}</li>
-                <li class="h-full flex flex-none justify-center items-center w-14">87.2</li>
-                <li class="h-full flex flex-none justify-center items-center w-14">${team.points}</li>
+                <li class="h-full flex flex-none justify-center items-center w-14">${team.winPercent + "%"}</li>
+                <li class="h-full flex flex-none justify-center items-center w-14 font-bold">${team.points}</li>
             </ul>
         </div>
     `;
