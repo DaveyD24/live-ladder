@@ -48,6 +48,7 @@ export function parseLadder(json) {
         teams.push({
             localName: PrefixOf(position["teamNickname"]),
             teamName: position["teamNickname"] === "Wests Tigers" ? "Tigers" : position["teamNickname"],
+            shorthand: ShortHandOf(position["teamNickname"]),
             gamesPlayed: position["stats"]["played"],
             wins: position["stats"]["wins"],
             draws: position["stats"]["drawn"],
@@ -71,14 +72,14 @@ function PrefixOf(teamName) {
         case "Raiders" : return "Canberra";
         case "Sharks" : return "Cronulla";
         case "Titans" : return "Gold Coast";
-        case "Sea Eagles" : return "Manly Warringah";
+        case "Sea Eagles" : return "Manly";
         case "Storm" : return "Melbourne";
         case "Warriors" : return "New Zealand";
         case "Knights" : return "Newcastle";
-        case "Cowboys" : return "North Queensland";
+        case "Cowboys" : return "North QLD";
         case "Eels" : return "Parramatta";
         case "Panthers" : return "Penrith";
-        case "Dragons" : return "St George Illawarra";
+        case "Dragons" : return "St George";
         case "Rabbitohs" : return "South Sydney";
         case "Roosters" : return "Sydney";
         case "Dolphins" : return "Redcliffe";
@@ -104,6 +105,27 @@ function ThreeLetterCodeOf(teamName) {
         case "Roosters" : return "SYD";
         case "Dolphins" : return "RED";
         case "Wests Tigers" : return "WST";
+    }
+}
+function ShortHandOf(teamName) {
+    switch (teamName) {
+        case "Broncos" : return null;
+        case "Bulldogs" : return null;
+        case "Raiders" : return null;
+        case "Sharks" : return null;
+        case "Titans" : return "GLD COAST";
+        case "Sea Eagles" : return null;
+        case "Storm" : return null;
+        case "Warriors" : return "NZ";
+        case "Knights" : return null;
+        case "Cowboys" : return "NQLD";
+        case "Eels" : return null;
+        case "Panthers" : return null;
+        case "Dragons" : return "ST.GEORGE";
+        case "Rabbitohs" : return "STH.SYD";
+        case "Roosters" : return null;
+        case "Dolphins" : return null;
+        case "Wests Tigers" : return null;
     }
 }
 function DeconstructKickOffLong(kickOffLong) {
