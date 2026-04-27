@@ -19,5 +19,36 @@
   }
 }
 
-@custom-variant dark (&:where(.dark, .dark *))
+@keyframes border-spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
 
+@keyframes flash-red {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: oklch(63.7% 0.237 25.331); }
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@layer components {
+    .live-game {
+        @apply relative z-2;
+    }
+    .live-game::before, .live-game::after {
+        @apply content-[""] absolute h-[104%] w-[101.25%] rounded-xl z-1 bg-[conic-gradient(from_var(--angle),transparent_75%,red)] animate-[border-spin_2s_infinite_linear];
+    }
+    .live-patch {
+        @apply animate-[flash-red_2s_infinite_linear];
+    }
+}
+
+@custom-variant dark (&:where(.dark, .dark *))

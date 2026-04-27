@@ -4,8 +4,6 @@ export function parseRound(json) {
     for (const fixture of json["fixtures"]) {
         games.push({
             round: fixture["roundTitle"].toString().split(" ")[1],
-            isActive: fixture["matchMode"] === "Live",
-            isCompleted: fixture["matchMode"] === "Post",
             homeTeam: {
                 localName: PrefixOf( fixture["homeTeam"]["nickName"]),
                 teamName: fixture["homeTeam"]["nickName"] === "Wests Tigers" ? "Tigers" : fixture["homeTeam"]["nickName"],
@@ -58,7 +56,8 @@ export function parseLadder(json) {
             pointsAgainst: position["stats"]["points against"],
             differential: position["stats"]["points difference"],
             winPercent: 0,
-            points: position["stats"]["points"]
+            points: position["stats"]["points"],
+            isPlaying: false
         });
     }
     return {
@@ -146,6 +145,8 @@ function DeconstructKickOffLong(kickOffLong) {
     };
 }
 function DetermineMatchState({minutes, seconds}) {
+    const states = ["UPCOMING", "GOLDENPOINT", "HALFTIME", "PROGRESS", "COMPLETED"];
+    return states[Math.floor(Math.random()* states.length)];
     if (parseInt(minutes) === 0 && parseInt(seconds) === 0) {
         return "UPCOMING";
     }
