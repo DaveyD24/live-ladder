@@ -9,11 +9,13 @@ export function parseRound(json) {
             homeTeam: {
                 localName: PrefixOf( fixture["homeTeam"]["nickName"]),
                 teamName: fixture["homeTeam"]["nickName"] === "Wests Tigers" ? "Tigers" : fixture["homeTeam"]["nickName"],
+                threeLetterCode: ThreeLetterCodeOf(fixture["homeTeam"]["nickName"]),
                 score: fixture["homeTeam"]["score"] ? fixture["homeTeam"]["score"] : 0
             },
             awayTeam: {
                 localName: PrefixOf( fixture["awayTeam"]["nickName"]),
                 teamName: fixture["awayTeam"]["nickName"] === "Wests Tigers" ? "Tigers" : fixture["awayTeam"]["nickName"],
+                threeLetterCode: ThreeLetterCodeOf(fixture["awayTeam"]["nickName"]),
                 score: fixture["awayTeam"]["score"] ? fixture["awayTeam"]["score"] : 0
             },
             kickoff: DeconstructKickOffLong(fixture["clock"]["kickOffTimeLong"]),
@@ -81,6 +83,27 @@ function PrefixOf(teamName) {
         case "Roosters" : return "Sydney";
         case "Dolphins" : return "Redcliffe";
         case "Wests Tigers" : return "Wests";
+    }
+}
+function ThreeLetterCodeOf(teamName) {
+    switch (teamName) {
+        case "Broncos" : return "BRI";
+        case "Bulldogs" : return "CBY";
+        case "Raiders" : return "CAN";
+        case "Sharks" : return "CRO";
+        case "Titans" : return "GLD";
+        case "Sea Eagles" : return "MAN";
+        case "Storm" : return "MEL";
+        case "Warriors" : return "NZD";
+        case "Knights" : return "NEW";
+        case "Cowboys" : return "NQL";
+        case "Eels" : return "PAR";
+        case "Panthers" : return "PEN";
+        case "Dragons" : return "STG";
+        case "Rabbitohs" : return "STH";
+        case "Roosters" : return "SYD";
+        case "Dolphins" : return "RED";
+        case "Wests Tigers" : return "WST";
     }
 }
 function DeconstructKickOffLong(kickOffLong) {
