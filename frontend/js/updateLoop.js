@@ -1,4 +1,6 @@
-import Game from "./components/Game.js";
+import CompletedGame from "./components/CompletedGame.js";
+import UpcomingGame from "./components/UpcomingGame.js";
+import LiveGame from "./components/LiveGame.js";
 
 fetchGames();
 setInterval(fetchGames, 6000);
@@ -15,6 +17,10 @@ function generateGames(jsonData) {
     const gamesContainer = document.querySelector(".games-container");
     gamesContainer.innerHTML = "";
     jsonData.games.forEach(game => {
-        gamesContainer.innerHTML += Game(game);
+        switch(game.matchState) {
+            case "UPCOMING": gamesContainer.innerHTML += UpcomingGame(game); break;
+            case "COMPLETED": gamesContainer.innerHTML += CompletedGame(game); break;
+            default: gamesContainer.innerHTML += LiveGame(game); break;
+        }
     })
 }

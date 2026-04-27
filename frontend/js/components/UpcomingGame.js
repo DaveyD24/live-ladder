@@ -1,0 +1,51 @@
+function render(game) {
+    return `
+        <div class="w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700">
+            <div class="flex justify-between w-full px-4 py-2 bg-gray-100 dark:bg-neutral-800 rounded-tr-lg rounded-tl-lg">
+                <span class="text-sm md:text-md text-gray-700 dark:text-zinc-50 font-bold">UPCOMING</span>
+                <span class="text-sm md:text-md text-gray-700 dark:text-zinc-50 font-bold">${game.kickoff.day}</span>
+            </div>
+            <div class="flex items-center justify-between px-3 md:px-6 py-4 w-full bg-white dark:bg-neutral-950">
+                <div class="flex items-center">
+                    <img class="w-12 md:w-18" src="image/broncos.png"/>
+                    <div class="flex flex-col">
+                        <p class="text-sm text-slate-400 dark:text-neutral-400 font-bold">HOME</p>
+                        <p class="font-bold text-md dark:text-zinc-50 leading-none">${game.homeTeam.threeLetterCode}</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 font-inter">
+                    <span class="text-xl md:text-3xl font-bold dark:text-zinc-50">${game.kickoff.time}</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="flex flex-col items-end">
+                        <p class="text-sm text-slate-400 dark:text-neutral-400 font-bold">AWAY</p>
+                        <p class="font-bold text-md dark:text-zinc-50 leading-none">${game.awayTeam.threeLetterCode}</p>
+                    </div>
+                    <img class="w-12 md:w-18" src="image/broncos.png"/>
+                </div>
+            </div>
+            <div class="flex justify-center items-center gap-6 px-4 py-3 bg-gray-100 dark:bg-neutral-800 w-full rounded-bl-lg rounded-br-lg text-xs text-slate-500 dark:text-neutral-400">
+                <div class="flex gap-2">
+                    <svg width="12px" height="12px" viewBox="0 0 20 20">
+                        <g stroke="none" stroke-width="1" fill="#62748e" fill-rule="evenodd">
+                            <g transform="translate(-223.000000, -5439.000000)" fill="#62748e">
+                                <g transform="translate(56.000000, 160.000000)">
+                                    <path d="M176,5286.219 C176,5287.324 175.105,5288.219 174,5288.219 C172.895,5288.219 172,5287.324 172,5286.219 C172,5285.114 172.895,5284.219 174,5284.219 C175.105,5284.219 176,5285.114 176,5286.219 M174,5296 C174,5296 169,5289 169,5286 C169,5283.243 171.243,5281 174,5281 C176.757,5281 179,5283.243 179,5286 C179,5289 174,5296 174,5296 M174,5279 C170.134,5279 167,5282.134 167,5286 C167,5289.866 174,5299 174,5299 C174,5299 181,5289.866 181,5286 C181,5282.134 177.866,5279 174,5279" id="pin_sharp_circle-[#624]"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <span>${game.stadium}</span>
+                </div>
+
+                <div class="flex gap-2">
+                    <svg width="12px" height="12px" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 10H21M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#627483" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>${game.kickoff.month + " " + game.kickoff.date + ", 2026"}</span>
+                </div>
+            </div>
+        </div>
+    `;
+}
+export default render;
