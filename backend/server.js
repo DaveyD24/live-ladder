@@ -7,6 +7,7 @@ import {clientLastSeen} from "./routes/ping.js";
 import * as Cache from "./cache.js";
 import {fetchGamesForRound, fetchLadderForRound} from "./services/apiFetcher.js";
 import { CurrentRound } from './services/currentRound.js';
+import { generateLadder } from "./services/ladderGenerator.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,25 +21,25 @@ app.use('/', pingRoute);
 app.listen(PORT, async () => {
     console.log(`Server running on port ${PORT}`);
 
-    Cache.clear();
-    Cache.data.ladder = await fetchLadderForRound(CurrentRound()-1)
-    const roundData = await fetchGamesForRound(CurrentRound());
-    roundData.games.forEach(game => { Cache.data.games.push(game); });
-    roundData.byes.forEach(bye => { Cache.data.byes.push(bye); });
+    await updateData();
 
     setInterval(async () => {
         if (!ActiveClient) {
             console.log("No active client. API call aborted");
             return;
         }
-        Cache.clear()
-        Cache.data.ladder = await fetchLadderForRound(CurrentRound()-1)
-        const roundData = await fetchGamesForRound(CurrentRound());
-        roundData.games.forEach(game => { Cache.data.games.push(game); });
-        roundData.byes.forEach(bye => { Cache.data.byes.push(bye); });
-
+        await updateData();
     }, 30000);
 })
+
+async function updateData() {
+    Cache.clear();
+    const ladderData = await fetchLadderForRound(CurrentRound()-1)
+    const roundData = await fetchGamesForRound(CurrentRound());
+    Cache.data.ladder = generateLadder(ladderData, roundData);
+    roundData.games.forEach(game => { Cache.data.games.push(game); });
+    roundData.byes.forEach(bye => { Cache.data.byes.push(bye); });
+}
 
 function ActiveClient() {
     return (Date.now() - clientLastSeen) < 10000;
