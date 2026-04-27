@@ -3,3 +3,8 @@ export let data = {
     games: [],
     byes: []
 }
+export function clear() {
+    data.ladder = [];
+    data.games = [];
+    data.byes = [];
+}
