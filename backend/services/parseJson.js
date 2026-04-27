@@ -67,7 +67,7 @@ export function parseLadder(json) {
 function PrefixOf(teamName) {
     switch (teamName) {
         case "Broncos" : return "Brisbane";
-        case "Bulldogs" : return "Canterbury Bankstown";
+        case "Bulldogs" : return "Canterbury";
         case "Raiders" : return "Canberra";
         case "Sharks" : return "Cronulla";
         case "Titans" : return "Gold Coast";
