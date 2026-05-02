@@ -6,6 +6,13 @@ export function generateLadder(ladderData, roundData) {
         const homeTeam = ladderData.teams.find(team => team.localName === game.homeTeam.localName);
         const awayTeam = ladderData.teams.find(team => team.localName === game.awayTeam.localName);
 
+        homeTeam.winPercent = (homeTeam.wins / homeTeam.gamesPlayed * 100).toFixed(0);
+        awayTeam.winPercent = (awayTeam.wins / awayTeam.gamesPlayed * 100).toFixed(0);
+
+        if (game.matchState === "UPCOMING") {
+            return;
+        }
+
         if (game.matchState !== "COMPLETED" && game.matchState !== "UPCOMING") {
             homeTeam.isPlaying = true;
             awayTeam.isPlaying = true;
@@ -37,9 +44,6 @@ export function generateLadder(ladderData, roundData) {
             homeTeam.losses++
             homeTeam.differential = homeTeam.pointsFor - homeTeam.pointsAgainst;
         }
-
-        homeTeam.winPercent = (homeTeam.wins / homeTeam.gamesPlayed * 100).toFixed(0);
-        awayTeam.winPercent = (awayTeam.wins / awayTeam.gamesPlayed * 100).toFixed(0);
 
     })
     roundData.byes.forEach(bye => {
