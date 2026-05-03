@@ -6,11 +6,8 @@ export function generateLadder(ladderData, roundData) {
         const homeTeam = ladderData.teams.find(team => team.localName === game.homeTeam.localName);
         const awayTeam = ladderData.teams.find(team => team.localName === game.awayTeam.localName);
 
-        homeTeam.winPercent = (homeTeam.wins / homeTeam.gamesPlayed * 100).toFixed(0);
-        awayTeam.winPercent = (awayTeam.wins / awayTeam.gamesPlayed * 100).toFixed(0);
-
-        if (game.matchState === "UPCOMING") {
-            return;
+        if (game.matchState !== "UPCOMING") {
+            setNewTeamStatistics(game, homeTeam, awayTeam);
         }
 
         if (game.matchState !== "COMPLETED" && game.matchState !== "UPCOMING") {
@@ -18,39 +15,15 @@ export function generateLadder(ladderData, roundData) {
             awayTeam.isPlaying = true;
         }
 
-        homeTeam.gamesPlayed++, awayTeam.gamesPlayed++;
-        homeTeam.pointsFor += game.homeTeam.score;
-        homeTeam.pointsAgainst += game.awayTeam.score;
-        awayTeam.pointsFor += game.awayTeam.score;
-        awayTeam.pointsAgainst += game.homeTeam.score;
-
-        if (game.homeTeam.score === game.awayTeam.score) {
-            homeTeam.draws++, awayTeam.draws++;
-            homeTeam.points += 1, awayTeam.points += 1;
-        }
-        else if (game.homeTeam.score > game.awayTeam.score) {
-            homeTeam.wins++
-            homeTeam.differential = homeTeam.pointsFor - homeTeam.pointsAgainst;
-            homeTeam.points += 2;
-
-            awayTeam.losses++
-            awayTeam.differential = awayTeam.pointsFor - awayTeam.pointsAgainst;
-        }
-        else {
-            awayTeam.wins++
-            awayTeam.differential = awayTeam.pointsFor - awayTeam.pointsAgainst;
-            awayTeam.points += 2;
-
-            homeTeam.losses++
-            homeTeam.differential = homeTeam.pointsFor - homeTeam.pointsAgainst;
-        }
+        setWinPercentage(homeTeam);
+        setWinPercentage(awayTeam);
 
     })
     roundData.byes.forEach(bye => {
         const team = ladderData.teams.find(team => team.localName === bye.team.localName);
         team.byes++;
         team.points += 2;
-        team.winPercent = (team.wins / team.gamesPlayed * 100).toFixed(0);
+        setWinPercentage(team);
     })
     
     Cache.data.ladder.points = structuredClone(ladderData)
@@ -61,4 +34,37 @@ export function generateLadder(ladderData, roundData) {
     Cache.data.ladder.wins.teams.sort((a,b) => (b.wins - a.wins) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
     Cache.data.ladder.percent.teams.sort((a,b) => (b.winPercent - a.winPercent) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
 
+}
+
+function setNewTeamStatistics(game, homeTeam, awayTeam) {
+    homeTeam.gamesPlayed++, awayTeam.gamesPlayed++;
+    homeTeam.pointsFor += game.homeTeam.score;
+    homeTeam.pointsAgainst += game.awayTeam.score;
+    awayTeam.pointsFor += game.awayTeam.score;
+    awayTeam.pointsAgainst += game.homeTeam.score;
+
+    if (game.homeTeam.score === game.awayTeam.score) {
+        homeTeam.draws++, awayTeam.draws++;
+        homeTeam.points += 1, awayTeam.points += 1;
+    }
+    else if (game.homeTeam.score > game.awayTeam.score) {
+        homeTeam.wins++
+        homeTeam.differential = homeTeam.pointsFor - homeTeam.pointsAgainst;
+        homeTeam.points += 2;
+
+        awayTeam.losses++
+        awayTeam.differential = awayTeam.pointsFor - awayTeam.pointsAgainst;
+    }
+    else {
+        awayTeam.wins++
+        awayTeam.differential = awayTeam.pointsFor - awayTeam.pointsAgainst;
+        awayTeam.points += 2;
+
+        homeTeam.losses++
+        homeTeam.differential = homeTeam.pointsFor - homeTeam.pointsAgainst;
+    }
+}
+
+function setWinPercentage(team) {
+    team.winPercent = (team.wins / team.gamesPlayed * 100).toFixed(0);
 }
