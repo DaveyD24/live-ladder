@@ -4,6 +4,9 @@ import * as Cache from "../cache.js";
 const router = Router();
 
 router.get('/data', (req, res) => {
+    if (["points", "wins", "percent"].includes(req.query.sort)) {
+
+    }
     res.json({
         "ladder": Cache.data.ladder[req.query.sort],
         "games": Cache.data.games,

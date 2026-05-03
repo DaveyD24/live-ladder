@@ -38,6 +38,7 @@ async function updateData() {
     const roundData = await fetchGamesForRound(CurrentRound());
     generateLadder(ladderData, roundData);
     roundData.games.forEach(game => { Cache.data.games.push(game); });
+    Cache.hoistLiveGame();
     roundData.byes.forEach(bye => { Cache.data.byes.push(bye); });
 }
 
