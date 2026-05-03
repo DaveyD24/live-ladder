@@ -8,7 +8,7 @@ if (localStorage.getItem("sort") === null) {
     localStorage.setItem("sort", "points");
 }
 
-fetchGames();
+await fetchGames();
 setInterval(fetchGames, 6000);
 
 export async function fetchGames() {
