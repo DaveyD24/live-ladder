@@ -1,6 +1,6 @@
 function render(game) {
     return `
-        <div class="w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700 opacity-75">
+        <div class="w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700 opacity-70">
             <span class="text-sm md:text-md flex justify-between w-full px-4 py-2 bg-gray-100 dark:bg-neutral-800 text-neutral-400 font-bold rounded-tr-lg rounded-tl-lg">${game.summary.toUpperCase()}</span>
             <div class="flex items-center justify-between px-3 md:px-6 py-4 w-full bg-white dark:bg-neutral-950">
                 <div class="flex items-center">

@@ -2,7 +2,20 @@ import CompletedGame from "./components/CompletedGame.js";
 import UpcomingGame from "./components/UpcomingGame.js";
 import LiveGame from "./components/LiveGame.js";
 import LadderRow from "./components/LadderRow.js";
+import Bye from "./components/Bye.js";
 import { addScrollListeners } from "./ladderScroll.js";
+
+const HARDCODED_BYES = {
+    byes: [
+        { team: {teamName: "Broncos"}},
+        { team: {teamName: "Warriors"}},
+        { team: {teamName: "Knights"}},
+        { team: {teamName: "Cowboys"}},
+        { team: {teamName: "Eels"}},
+        { team: {teamName: "Panthers"}},
+        { team: {teamName: "Dragons"}}
+    ]
+}
 
 if (localStorage.getItem("sort") === null) {
     localStorage.setItem("sort", "points");
@@ -48,6 +61,7 @@ function generateGames(jsonData) {
             default: gamesContainer.innerHTML += LiveGame(game); break;
         }
     })
+    gamesContainer.innerHTML += Bye(HARDCODED_BYES.byes);
 }
 
 function addHeaderListeners() {
