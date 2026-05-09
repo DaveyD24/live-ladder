@@ -22,7 +22,8 @@ export function parseRound(json) {
                 seconds: fixture["clock"]["gameTime"].split(":")[1]
             },
             stadium: fixture["venue"],
-            matchState: DetermineMatchState({ minutes: fixture["clock"]["gameTime"].split(":")[0], seconds: fixture["clock"]["gameTime"].split(":")[1]})
+            matchState: DetermineMatchState({ minutes: fixture["clock"]["gameTime"].split(":")[0], seconds: fixture["clock"]["gameTime"].split(":")[1]}),
+            summary: ""
         });
     }
     for (const bye of json["byes"]) {

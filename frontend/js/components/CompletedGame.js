@@ -1,7 +1,7 @@
 function render(game) {
     return `
-        <div class="w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700">
-            <span class="text-sm md:text-md flex justify-between w-full px-4 py-2 bg-gray-100 dark:bg-neutral-800 text-neutral-400 font-bold rounded-tr-lg rounded-tl-lg">${game.matchState}</span>
+        <div class="w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700 opacity-75">
+            <span class="text-sm md:text-md flex justify-between w-full px-4 py-2 bg-gray-100 dark:bg-neutral-800 text-neutral-400 font-bold rounded-tr-lg rounded-tl-lg">${game.summary.toUpperCase()}</span>
             <div class="flex items-center justify-between px-3 md:px-6 py-4 w-full bg-white dark:bg-neutral-950">
                 <div class="flex items-center">
                     <img class="w-12 md:w-18 mr-4" src="image/${game.homeTeam.teamName.replace(" ", "").toLowerCase()}.png"/>

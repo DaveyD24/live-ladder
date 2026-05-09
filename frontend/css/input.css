@@ -10,6 +10,7 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 1200px;
     --breakpoint-desktop: 1650px;
+    --breakpoint-wide: 2200px;
 }
 
 @utility no-scrollbar {

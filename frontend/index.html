@@ -37,7 +37,7 @@
             <div class="flex flex-row justify-end">
                 <span class="inline-block min-w-52 md:min-w-[320px]"></span>
                 <span class="bg-slate-100 dark:bg-neutral-950 ml-8 h-12 inline-block w-[calc(100%-900px)]"></span>
-                <ul class="stats-col no-scrollbar h-12 flex flex-nowrap overflow-x-auto w-full max-w-120 dark:text-zinc-100 bg-red-400 rounded-tr-xl rounded-tl-xl">
+                <ul class="stats-col no-scrollbar h-12 desktop:h-16 flex flex-nowrap overflow-x-auto w-full max-w-120 dark:text-zinc-100 bg-red-400 rounded-tr-xl rounded-tl-xl">
                     <li class="h-full flex flex-none justify-center items-center w-12">P</li>
                     <li id="win-sort" class="h-full flex flex-none justify-center items-center w-12 font-bold hover:cursor-pointer hover:bg-rose-300 transition-all duration-200 ease-in-out">W</li>
                     <li class="h-full flex flex-none justify-center items-center w-12">D</li>
@@ -49,163 +49,15 @@
                     <li id="percent-sort" class="h-full flex flex-none justify-center items-center w-12 font-bold hover:cursor-pointer hover:bg-rose-300 transition-all duration-200 ease-in-out">%</li>
                     <li id="points-sort" class="h-full flex flex-none justify-center items-center w-12 font-bold hover:cursor-pointer hover:bg-rose-300 transition-all duration-200 ease-in-out">Pts</li>
                 </ul>
-            </div> 
+            </div>
 
-            <!-- Row -->
-            <div class="relative flex flex-row justify-start items-center h-12 desktop:h-16 bg-white dark:bg-neutral-950 border border-slate-200 dark:border-neutral-600 rounded-br-lg">
-                <div class="flex flex-row h-full justify-start items-center min-w-52 md:min-w-80">
-                    <span class="h-12 desktop:h-16 min-w-2.5 rounded-l-sm inline-block bg-red-400"></span>
-                    <img src="image/broncos.png" class="w-8.75 desktop:w-12.5 ml-2 mr-2 lg:ml-4 lg:mr-4">
-                    <span class="text-md lg:text-2xl font-bold tracking-tight dark:text-zinc-50 mr-2">HURSTVILLE</span>
-                    <span class="text-xs lg:text-sm tracking-widest dark:text-zinc-100">HORNETS</span>
-                </div>
-                <span class="bg-white dark:bg-neutral-950 ml-8 h-12 desktop:h-16 inline-block w-[calc(100%-900px)] border-t border-b border-slate-200 dark:border-neutral-600"></span>
-                <ul class="stats-col h-12 desktop:h-16 flex flex-nowrap overflow-x-auto w-full max-w-140 dark:text-zinc-100">
-                    <li class="h-full flex flex-none justify-center items-center w-14">1</li>
-                    <li class="h-full flex flex-none justify-center items-center w-14">1</li>
-                    <li class="h-full flex flex-none justify-center items-center w-14">1</li>
-                    <li class="h-full flex flex-none justify-center items-center w-14">1</li>
-                    <li class="h-full flex flex-none justify-center items-center w-14">1</li>
-                    <li class="h-full flex flex-none justify-center items-center w-14">9672</li>
-                    <li class="h-full flex flex-none justify-center items-center w-14">1292</li>
-                    <li class="h-full flex flex-none justify-center items-center w-14">1</li>
-                    <li class="h-full flex flex-none justify-center items-center w-14">1</li>
-                    <li class="h-full flex flex-none justify-center items-center w-14">1</li>
-                </ul>
-             </div>
         </section>
         
         <!-- Games -->
         <section class="games-container w-95/100 pb-10 font-geist flex flex-col justify-start items-center gap-4
                         lg:max-desktop:grid lg:grid-cols-2 lg:grid-rows-4 lg:gap-y-6 lg:place-items-center
-                        desktop:pt-10 desktop:grid-none desktop:w-full">
-            
-            <!-- Completed Game -->
-            <div class="w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700">
-                <span class="text-sm md:text-md flex justify-between w-full px-4 py-2 bg-gray-100 dark:bg-neutral-800 text-neutral-400 font-bold rounded-tr-lg rounded-tl-lg">COMPLETED</span>
-                <div class="flex items-center justify-between px-3 md:px-6 py-4 w-full bg-white dark:bg-neutral-950">
-                    <div class="flex items-center">
-                        <img class="w-12 md:w-18" src="image/broncos.png"/>
-                        <div class="flex flex-col">
-                            <p class="text-sm text-slate-400 dark:text-neutral-400 font-bold">HOME</p>
-                            <p class="font-bold text-md dark:text-zinc-50 leading-none">HRN</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2 font-inter">
-                        <span class="text-2xl md:text-5xl font-bold dark:text-zinc-50">34</span>
-                        <span class="text-xl md:text-2xl text-slate-300 dark:text-neutral-400">-</span>
-                        <span class="text-2xl md:text-5xl font-bold dark:text-zinc-50">12</span>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="flex flex-col items-end">
-                            <p class="text-sm text-slate-400 dark:text-neutral-400 font-bold">AWAY</p>
-                            <p class="font-bold text-md dark:text-zinc-50 leading-none">FCL</p>
-                        </div>
-                        <img class="w-12 md:w-18" src="image/broncos.png"/>
-                    </div>
-                </div>
-                <div class="flex justify-center items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-neutral-800 w-full rounded-bl-lg rounded-br-lg text-xs text-slate-500 dark:text-neutral-400">
-                    <svg width="12px" height="12px" viewBox="0 0 20 20">
-                        <g stroke="none" stroke-width="1" fill="#62748e" fill-rule="evenodd">
-                            <g transform="translate(-223.000000, -5439.000000)" fill="#62748e">
-                                <g transform="translate(56.000000, 160.000000)">
-                                    <path d="M176,5286.219 C176,5287.324 175.105,5288.219 174,5288.219 C172.895,5288.219 172,5287.324 172,5286.219 C172,5285.114 172.895,5284.219 174,5284.219 C175.105,5284.219 176,5285.114 176,5286.219 M174,5296 C174,5296 169,5289 169,5286 C169,5283.243 171.243,5281 174,5281 C176.757,5281 179,5283.243 179,5286 C179,5289 174,5296 174,5296 M174,5279 C170.134,5279 167,5282.134 167,5286 C167,5289.866 174,5299 174,5299 C174,5299 181,5289.866 181,5286 C181,5282.134 177.866,5279 174,5279" id="pin_sharp_circle-[#624]"></path>
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
-                    <span>Suncorp Stadium</span>
-                </div>
-             </div>
-
-            <!-- Upcoming Game -->
-            <div class="w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700">
-                <div class="flex justify-between w-full px-4 py-2 bg-gray-100 dark:bg-neutral-800 rounded-tr-lg rounded-tl-lg">
-                    <span class="text-sm md:text-md text-gray-700 dark:text-zinc-50 font-bold">UPCOMING</span>
-                    <span class="text-sm md:text-md text-gray-700 dark:text-zinc-50 font-bold">SATURDAY</span>
-                </div>
-                <div class="flex items-center justify-between px-3 md:px-6 py-4 w-full bg-white dark:bg-neutral-950">
-                    <div class="flex items-center">
-                        <img class="w-12 md:w-18" src="image/broncos.png"/>
-                        <div class="flex flex-col">
-                            <p class="text-sm text-slate-400 dark:text-neutral-400 font-bold">HOME</p>
-                            <p class="font-bold text-md dark:text-zinc-50 leading-none">HRN</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4 font-inter">
-                        <span class="text-xl md:text-3xl font-bold dark:text-zinc-50">7:00PM</span>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="flex flex-col items-end">
-                            <p class="text-sm text-slate-400 dark:text-neutral-400 font-bold">AWAY</p>
-                            <p class="font-bold text-md dark:text-zinc-50 leading-none">FCL</p>
-                        </div>
-                        <img class="w-12 md:w-18" src="image/broncos.png"/>
-                    </div>
-                </div>
-                <div class="flex justify-center items-center gap-6 px-4 py-3 bg-gray-100 dark:bg-neutral-800 w-full rounded-bl-lg rounded-br-lg text-xs text-slate-500 dark:text-neutral-400">
-                    <div class="flex gap-2">
-                        <svg width="12px" height="12px" viewBox="0 0 20 20">
-                            <g stroke="none" stroke-width="1" fill="#62748e" fill-rule="evenodd">
-                                <g transform="translate(-223.000000, -5439.000000)" fill="#62748e">
-                                    <g transform="translate(56.000000, 160.000000)">
-                                        <path d="M176,5286.219 C176,5287.324 175.105,5288.219 174,5288.219 C172.895,5288.219 172,5287.324 172,5286.219 C172,5285.114 172.895,5284.219 174,5284.219 C175.105,5284.219 176,5285.114 176,5286.219 M174,5296 C174,5296 169,5289 169,5286 C169,5283.243 171.243,5281 174,5281 C176.757,5281 179,5283.243 179,5286 C179,5289 174,5296 174,5296 M174,5279 C170.134,5279 167,5282.134 167,5286 C167,5289.866 174,5299 174,5299 C174,5299 181,5289.866 181,5286 C181,5282.134 177.866,5279 174,5279" id="pin_sharp_circle-[#624]"></path>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
-                        <span>Suncorp Stadium</span>
-                    </div>
-
-                    <div class="flex gap-2">
-                        <svg width="12px" height="12px" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 10H21M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#627483" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span>Apr 19, 2026</span>
-                    </div>
-                </div>
-             </div>
-
-             <!-- Live Game -->
-            <div class="w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700">
-                <div class="flex justify-between w-full px-4 py-2 bg-gray-100 dark:bg-neutral-800 rounded-tr-lg rounded-tl-lg">
-                    <span class="text-sm md:text-md text-red-500 font-bold">LIVE</span>
-                    <span class="text-sm md:text-md text-gray-700 dark:text-zinc-50 font-bold">HALFTIME</span>
-                </div>
-                <div class="flex items-center justify-between px-3 md:px-6 py-4 w-full bg-white dark:bg-neutral-950">
-                    <div class="flex items-center">
-                        <img class="w-12 md:w-18" src="image/broncos.png"/>
-                        <div class="flex flex-col">
-                            <p class="text-sm text-slate-400 dark:text-neutral-400 font-bold">HOME</p>
-                            <p class="font-bold text-md dark:text-zinc-50 leading-none">HRN</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2 font-inter">
-                        <span class="text-2xl md:text-5xl font-bold text-red-500">34</span>
-                        <span class="text-xl md:text-2xl text-slate-300 dark:text-neutral-400">-</span>
-                        <span class="text-2xl md:text-5xl font-bold text-red-500">12</span>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="flex flex-col items-end">
-                            <p class="text-sm text-slate-400 dark:text-neutral-400 font-bold">AWAY</p>
-                            <p class="font-bold text-md dark:text-zinc-50 leading-none">FCL</p>
-                        </div>
-                        <img class="w-12 md:w-18" src="image/broncos.png"/>
-                    </div>
-                </div>
-                <div class="flex justify-center items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-neutral-800 w-full rounded-bl-lg rounded-br-lg text-xs text-slate-500 dark:text-neutral-400">
-                    <svg width="12px" height="12px" viewBox="0 0 20 20">
-                        <g stroke="none" stroke-width="1" fill="#62748e" fill-rule="evenodd">
-                            <g transform="translate(-223.000000, -5439.000000)" fill="#62748e">
-                                <g transform="translate(56.000000, 160.000000)">
-                                    <path d="M176,5286.219 C176,5287.324 175.105,5288.219 174,5288.219 C172.895,5288.219 172,5287.324 172,5286.219 C172,5285.114 172.895,5284.219 174,5284.219 C175.105,5284.219 176,5285.114 176,5286.219 M174,5296 C174,5296 169,5289 169,5286 C169,5283.243 171.243,5281 174,5281 C176.757,5281 179,5283.243 179,5286 C179,5289 174,5296 174,5296 M174,5279 C170.134,5279 167,5282.134 167,5286 C167,5289.866 174,5299 174,5299 C174,5299 181,5289.866 181,5286 C181,5282.134 177.866,5279 174,5279" id="pin_sharp_circle-[#624]"></path>
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
-                    <span>Suncorp Stadium</span>
-                </div>
-             </div>
+                        desktop:pt-10 desktop:grid-none desktop:w-full desktop:max-h-325 desktop:overflow-y-auto desktop:mt-10
+                        ">
         </section>
     </div>
 </body>

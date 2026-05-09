@@ -1,6 +1,6 @@
 function render(game) {
     return `
-        <div class="live-game w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700">
+        <div class="live-game w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700 shadow-lg dark:shadow-md dark:shadow-white/10">
             <div class="h-full w-full z-2">
                         <div class="flex justify-between w-full px-4 py-2 bg-gray-100 dark:bg-neutral-800 rounded-tr-lg rounded-tl-lg">
                 <span class="text-sm md:text-md text-red-500 font-bold">LIVE</span>

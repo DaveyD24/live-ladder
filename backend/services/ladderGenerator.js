@@ -15,6 +15,10 @@ export function generateLadder(ladderData, roundData) {
             awayTeam.isPlaying = true;
         }
 
+        if (game.matchState === "COMPLETED") {
+            setSummary(game);
+        }
+
         setWinPercentage(homeTeam);
         setWinPercentage(awayTeam);
 
@@ -67,4 +71,10 @@ function setNewTeamStatistics(game, homeTeam, awayTeam) {
 
 function setWinPercentage(team) {
     team.winPercent = (team.wins / team.gamesPlayed * 100).toFixed(0);
+}
+
+function setSummary(game) {
+    const winner = game.homeTeam.score > game.awayTeam.score ? game.homeTeam : game.awayTeam;
+    const margin = Math.abs(game.homeTeam.score - game.awayTeam.score);
+    game.summary = `${winner.localName} by ${margin}`
 }
