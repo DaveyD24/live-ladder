@@ -1,6 +1,6 @@
 function render(game) {
     return `
-        <div class="w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700 shadow-lg dark:shadow-md dark:shadow-white/10">
+        <div class="w-9/10 max-w-200 flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-700 shadow-lg dark:shadow-md dark:shadow-white/10 transition-all duration-200 ease-in-out">
             <div class="flex justify-between w-full px-4 py-2 bg-gray-100 dark:bg-neutral-800 rounded-tr-lg rounded-tl-lg">
                 <span class="text-sm md:text-md text-gray-700 dark:text-zinc-50 font-bold">UPCOMING</span>
                 <span class="text-sm md:text-md text-gray-700 dark:text-zinc-50 font-bold">${game.kickoff.day.toUpperCase()}</span>

@@ -70,7 +70,7 @@ function setNewTeamStatistics(game, homeTeam, awayTeam) {
 }
 
 function setWinPercentage(team) {
-    team.winPercent = (team.wins / team.gamesPlayed * 100).toFixed(0);
+    team.winPercent = ((team.wins + (team.draws/2)) / team.gamesPlayed * 100).toFixed(0);
 }
 
 function setSummary(game) {

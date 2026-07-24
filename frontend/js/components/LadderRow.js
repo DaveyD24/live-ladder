@@ -22,7 +22,7 @@ const colourPairs = {
 
 function render(team) {
     return `
-        <div class="relative flex flex-row justify-between items-center h-12 desktop:h-18 ${team.isPlaying ? colourPairs["playing"] : colourPairs["normal"]} border border-slate-200 dark:border-neutral-600 rounded-bl-lg rounded-tl-lg rounded-tr-lg rounded-br-lg shadow-lg dark:shadow-white/5">
+        <div class="relative flex flex-row justify-between items-center h-12 desktop:h-18 ${team.isPlaying ? colourPairs["playing"] : colourPairs["normal"]} border border-slate-200 dark:border-neutral-600 rounded-bl-lg rounded-tl-lg rounded-tr-lg rounded-br-lg shadow-lg dark:shadow-white/5 transition-all duration-200 ease-in-out">
             <div class="flex flex-row h-full justify-start items-center min-w-52 md:min-w-80 lg:min-w-96 desktop:min-w-85">
                 <span class="${team.isPlaying ? 'live-patch' : ''} h-12 desktop:h-18 min-w-2.5 rounded-l-sm inline-block ${colourPairs[team.localName]}"></span>
                 <img src="image/${team.teamName.replace(" ", "").toLowerCase()}.png" class="w-8.75 desktop:w-12.5 ml-2 mr-2 lg:ml-4 lg:mr-4">

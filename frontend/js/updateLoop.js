@@ -61,7 +61,7 @@ function generateGames(jsonData) {
             default: gamesContainer.innerHTML += LiveGame(game); break;
         }
     })
-    gamesContainer.innerHTML += Bye(HARDCODED_BYES.byes);
+    gamesContainer.innerHTML += Bye(jsonData.byes);
 }
 
 function addHeaderListeners() {
