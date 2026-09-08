@@ -10,7 +10,9 @@ router.get('/data', (req, res) => {
     res.json({
         "ladder": Cache.data.ladder[req.query.sort],
         "games": Cache.data.games,
-        "byes": Cache.data.byes
+        "byes": Cache.data.byes,
+        "year": Cache.data.year,
+        "round": Cache.data.round
     });
 });
 

@@ -26,15 +26,18 @@ export function parseRound(json) {
             summary: ""
         });
     }
-    for (const bye of json["byes"]) {
-        byes.push({
-            round: bye["roundTitle"].toString().split(" ")[1],
-            team: {
-                localName: PrefixOf( bye["teamNickName"]),
-                teamName: bye["teamNickName"] === "Wests Tigers" ? "Tigers" : bye["teamNickName"]
-            }
-        });
+    if (json["byes"]) {
+        for (const bye of json["byes"]) {
+            byes.push({
+                round: bye["roundTitle"].toString().split(" ")[1],
+                team: {
+                    localName: PrefixOf( bye["teamNickName"]),
+                    teamName: bye["teamNickName"] === "Wests Tigers" ? "Tigers" : bye["teamNickName"]
+                }
+            });
+        }
     }
+
     return {
         "games": games,
         "byes": byes

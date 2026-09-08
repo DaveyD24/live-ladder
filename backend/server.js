@@ -3,6 +3,8 @@ import cors from 'cors';
 
 import dataRoute from "./routes/data.js";
 import pingRoute from "./routes/ping.js";
+import historicalRoute from "./routes/historical.js";
+import { isHistorical } from "./routes/historical.js";
 import {clientLastSeen} from "./routes/ping.js";
 import * as Cache from "./cache.js";
 import {fetchGamesForRound, fetchLadderForRound} from "./services/apiFetcher.js";
@@ -17,29 +19,33 @@ app.use(cors());
 
 app.use('/', dataRoute);
 app.use('/', pingRoute);
+app.use('/', historicalRoute);
 
 app.listen(PORT, async () => {
     console.log(`Server running on port ${PORT}`);
 
-    await updateData();
-
+    await updateData(CurrentRound(), 2026);
     setInterval(async () => {
         if (!ActiveClient) {
             console.log("No active client. API call aborted");
             return;
         }
-        await updateData();
+        if (isHistorical) {
+            return;
+        }
+        await updateData(CurrentRound(), 2026);
     }, 30000);
 })
 
-async function updateData() {
+export async function updateData(round, year) {
     Cache.clear();
-    const ladderData = await fetchLadderForRound(CurrentRound()-1)
-    const roundData = await fetchGamesForRound(CurrentRound());
+    const ladderData = await fetchLadderForRound(round-1, year)
+    const roundData = await fetchGamesForRound(round, year);
     generateLadder(ladderData, roundData);
     roundData.games.forEach(game => { Cache.data.games.push(game); });
-    Cache.hoistLiveGame();
     roundData.byes.forEach(bye => { Cache.data.byes.push(bye); });
+    Cache.hoistLiveGame();
+    Cache.setRoundAndYear(round, year);
 }
 
 function ActiveClient() {
