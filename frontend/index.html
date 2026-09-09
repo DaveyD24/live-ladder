@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-    <header class="flex justify-start px-4 md:px-0 md:justify-center items-center bg-red-400">
+    <header class="flex justify-start px-4 md:px-0 md:justify-center items-center bg-red-400 history:bg-yellow-800">
         <h1 class="select-none text-3xl text-center py-4 text-slate-100 tracking-tightest font-Inter font-bold">
             NRLLadder.Live
         </h1>
@@ -50,7 +50,7 @@
         <section class="ladder-row-container relative w-9/10 py-10 flex flex-col font-geist 
                         desktop:max-w-325 desktop:ml-10">
 
-            <div id="historical-label" class="absolute left-12 top-13 text-xl text-slate-500">
+            <div id="historical-label" class="absolute left-12 top-13 text-xl text-slate-500 font-inter">
                 Round 26, 2026
             </div>
 
@@ -58,17 +58,17 @@
             <div class="flex flex-row justify-end">
                 <span class="inline-block min-w-52 md:min-w-[320px]"></span>
                 <span class="bg-slate-100 dark:bg-neutral-950 ml-8 h-12 inline-block w-[calc(100%-900px)]"></span>
-                <ul class="stats-col no-scrollbar h-12 desktop:h-16 flex flex-nowrap overflow-x-auto w-full max-w-120 dark:text-zinc-100 bg-red-400 rounded-tr-xl rounded-tl-xl">
+                <ul class="stats-col no-scrollbar h-12 desktop:h-16 flex flex-nowrap overflow-x-auto w-full max-w-120 dark:text-zinc-100 bg-red-400 history:bg-yellow-800 rounded-tr-xl rounded-tl-xl">
                     <li class="h-full flex flex-none justify-center items-center w-12">P</li>
-                    <li id="win-sort" class="h-full flex flex-none justify-center items-center w-12 font-bold hover:cursor-pointer hover:bg-rose-300 transition-all duration-200 ease-in-out">W</li>
+                    <li id="win-sort" class="h-full flex flex-none justify-center items-center w-12 font-bold hover:cursor-pointer hover:bg-rose-300 history:hover:bg-yellow-700 transition-all duration-200 ease-in-out">W</li>
                     <li class="h-full flex flex-none justify-center items-center w-12">D</li>
                     <li class="h-full flex flex-none justify-center items-center w-12">L</li>
                     <li class="h-full flex flex-none justify-center items-center w-12">B</li>
                     <li class="h-full flex flex-none justify-center items-center w-12">PF</li>
                     <li class="h-full flex flex-none justify-center items-center w-12">PA</li>
                     <li class="h-full flex flex-none justify-center items-center w-12">+/-</li>
-                    <li id="percent-sort" class="h-full flex flex-none justify-center items-center w-12 font-bold hover:cursor-pointer hover:bg-rose-300 transition-all duration-200 ease-in-out">%</li>
-                    <li id="points-sort" class="h-full flex flex-none justify-center items-center w-12 font-bold hover:cursor-pointer hover:bg-rose-300 transition-all duration-200 ease-in-out">Pts</li>
+                    <li id="percent-sort" class="h-full flex flex-none justify-center items-center w-12 font-bold hover:cursor-pointer hover:bg-rose-300 history:hover:bg-yellow-700 transition-all duration-200 ease-in-out">%</li>
+                    <li id="points-sort" class="h-full flex flex-none justify-center items-center w-12 font-bold hover:cursor-pointer hover:bg-rose-300 history:hover:bg-yellow-700 transition-all duration-200 ease-in-out">Pts</li>
                 </ul>
             </div>
 

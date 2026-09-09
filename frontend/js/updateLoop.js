@@ -5,20 +5,11 @@ import LadderRow from "./components/LadderRow.js";
 import Bye from "./components/Bye.js";
 import { addScrollListeners } from "./ladderScroll.js";
 
-const HARDCODED_BYES = {
-    byes: [
-        { team: {teamName: "Broncos"}},
-        { team: {teamName: "Warriors"}},
-        { team: {teamName: "Knights"}},
-        { team: {teamName: "Cowboys"}},
-        { team: {teamName: "Eels"}},
-        { team: {teamName: "Panthers"}},
-        { team: {teamName: "Dragons"}}
-    ]
-}
-
 if (localStorage.getItem("sort") === null) {
     localStorage.setItem("sort", "points");
+}
+if (localStorage.getItem("historical") === null) {
+    localStorage.setItem("historical", "false");
 }
 
 await fetchGames();
@@ -26,10 +17,13 @@ setInterval(fetchGames, 6000);
 
 export async function fetchGames() {
     const sortKey = localStorage.getItem("sort");
+    const historical = localStorage.getItem("historical")
     let jsonData = {};
-    await fetch(`http://localhost:3000/data?sort=${sortKey}`)
+
+    await fetch(`http://localhost:3000/data?sort=${sortKey}&historical=${historical}`)
         .then(res => res.json())
         .then(data => jsonData = data)
+
     generateLadder(jsonData);
     generateGames(jsonData);
 }
@@ -96,17 +90,8 @@ async function changeSortOrder(key) {
     await fetchGames();
 }
 
-const debugBtn = document.getElementById("debug-btn");
-debugBtn.addEventListener("click", async () => {
-    await fetch('http://localhost:3000/historical', {
-        method: "PATCH"
-    });
-
-    const sortKey = localStorage.getItem("sort");
-    let jsonData = {};
-    await fetch(`http://localhost:3000/data?sort=${sortKey}`)
-        .then(res => res.json())
-        .then(data => jsonData = data)
-    generateLadder(jsonData);
-    generateGames(jsonData);
+const historyBtn = document.getElementById("debug-btn");
+historyBtn.addEventListener("click", async () => {
+    localStorage.setItem("historical", localStorage.getItem("historical") === "true" ? "false": "true");
+    fetchGames();
 })
