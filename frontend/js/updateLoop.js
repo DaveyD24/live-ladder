@@ -93,5 +93,6 @@ async function changeSortOrder(key) {
 const historyBtn = document.getElementById("debug-btn");
 historyBtn.addEventListener("click", async () => {
     localStorage.setItem("historical", localStorage.getItem("historical") === "true" ? "false": "true");
+    document.documentElement.classList.toggle("history");
     fetchGames();
 })
