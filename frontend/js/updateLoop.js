@@ -42,7 +42,7 @@ function generateLadder(jsonData) {
     jsonData.ladder.teams.forEach(team => {
         ladderRowContainer.innerHTML += LadderRow(team);
     })
-    ladderRowContainer.children[1].classList.remove("rounded-tr-lg");
+    ladderRowContainer.children[2].classList.remove("rounded-tr-lg");
     ladderRowContainer.children[9].classList.add("mb-4");
     ladderRowContainer.children[9].classList.add("desktop:mb-8")
     const rows = ladderRowContainer.querySelectorAll(".stats-col");
@@ -98,7 +98,9 @@ async function changeSortOrder(key) {
 
 const debugBtn = document.getElementById("debug-btn");
 debugBtn.addEventListener("click", async () => {
-    await fetch('http://localhost:3000/historical');
+    await fetch('http://localhost:3000/historical', {
+        method: "PATCH"
+    });
 
     const sortKey = localStorage.getItem("sort");
     let jsonData = {};

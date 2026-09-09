@@ -15,7 +15,7 @@ function randomRound(minRound, maxRound) {
     return Math.floor(Math.random() * (maxRound - minRound + 1) + minRound);
 }
 
-router.get('/historical', (req, res) => {
+router.patch('/historical', (req, res) => {
     isHistorical = true;
     historicalYear = randomYear(2005, 2025);
     historicalRound = randomRound(1, 24);
