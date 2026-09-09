@@ -90,9 +90,21 @@ async function changeSortOrder(key) {
     await fetchGames();
 }
 
+const history = localStorage.getItem("historical");
+if (history === null) {
+    localStorage.setItem("historical", "false");
+}
+if (history === "true") {
+    alternateHistoryColour();
+}
+
 const historyBtn = document.getElementById("debug-btn");
 historyBtn.addEventListener("click", async () => {
     localStorage.setItem("historical", localStorage.getItem("historical") === "true" ? "false": "true");
-    document.documentElement.classList.toggle("history");
+    alternateHistoryColour();
     fetchGames();
 })
+
+function alternateHistoryColour() {
+    document.documentElement.classList.toggle("history");
+}
