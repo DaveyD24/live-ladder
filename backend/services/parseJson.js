@@ -69,6 +69,7 @@ export function parseLadder(json) {
     }
 }
 
+//TODO: Convert to dictionary
 function PrefixOf(teamName) {
     switch (teamName) {
         case "Broncos" : return "Brisbane";

@@ -27,7 +27,7 @@ export let historical_snapshot = {
 }
 
 export function clear(data) {
-    data.ladder = [];
+    data.ladder = {};
     data.games = [];
     data.byes = [];
 }
@@ -46,6 +46,7 @@ export function hoistLiveGame(data) {
     }
 }
 
+//Just modify the object directly
 export function setRoundAndYear(data, round, year) {
     data.round = round;
     data.year = year;
@@ -61,6 +62,7 @@ export function rewriteGameHistory() {
         const game = historical_snapshot.games[i];
         if (i === stop) {
             game.matchState = "HALFTIME";
+            //TODO: constants
             game.homeTeam.score = parseInt(halfTimeScores[historical_snapshot.year][historical_snapshot.round][stop].home);
             game.awayTeam.score = parseInt(halfTimeScores[historical_snapshot.year][historical_snapshot.round][stop].away);
         }
