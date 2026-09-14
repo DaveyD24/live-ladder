@@ -83,5 +83,5 @@ export const teamHandleDictionary = {
         "prefix": "Redcliffe",
         "three-letter-code": "RED",
         "shorthand": null
-    },
+    }
 }

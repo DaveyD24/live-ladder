@@ -32,7 +32,7 @@ export function parseRound(json) {
     }
     if (json["byes"]) {
         for (const bye of json["byes"]) {
-            const teamKey = bye["teamNickname"];
+            const teamKey = bye["teamNickName"];
             byes.push({
                 round: bye["roundTitle"].toString().split(" ")[1],
                 team: {
