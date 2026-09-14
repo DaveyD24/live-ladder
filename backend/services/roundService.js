@@ -8,3 +8,11 @@ export function CurrentRound() {
 
     return Math.floor(weeks) + 1;
 }
+
+export function randomSeason(minYear, maxYear) {
+    return Math.floor(Math.random() * (maxYear - minYear + 1) + minYear);
+}
+
+export function randomRound(minRound, maxRound) {
+    return Math.floor(Math.random() * (maxRound - minRound + 1) + minRound);
+}

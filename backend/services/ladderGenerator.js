@@ -1,6 +1,4 @@
-import * as Cache from "../cache.js";
-
-export function generateLadder(ladderData, roundData) {
+export function generateLadder(output, ladderData, roundData) {
     roundData.games.forEach(game => {
 
         const homeTeam = ladderData.teams.find(team => team.localName === game.homeTeam.localName);
@@ -30,13 +28,13 @@ export function generateLadder(ladderData, roundData) {
         setWinPercentage(team);
     })
     
-    Cache.data.ladder.points = structuredClone(ladderData)
-    Cache.data.ladder.wins = structuredClone(ladderData);
-    Cache.data.ladder.percent = structuredClone(ladderData)
+    output.ladder.points = structuredClone(ladderData)
+    output.ladder.wins = structuredClone(ladderData);
+    output.ladder.percent = structuredClone(ladderData)
 
-    Cache.data.ladder.points.teams.sort((a,b) => (b.points - a.points) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
-    Cache.data.ladder.wins.teams.sort((a,b) => (b.wins - a.wins) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
-    Cache.data.ladder.percent.teams.sort((a,b) => (b.winPercent - a.winPercent) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
+    output.ladder.points.teams.sort((a,b) => (b.points - a.points) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
+    output.ladder.wins.teams.sort((a,b) => (b.wins - a.wins) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
+    output.ladder.percent.teams.sort((a,b) => (b.winPercent - a.winPercent) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
 
 }
 

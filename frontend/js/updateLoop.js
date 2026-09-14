@@ -5,20 +5,11 @@ import LadderRow from "./components/LadderRow.js";
 import Bye from "./components/Bye.js";
 import { addScrollListeners } from "./ladderScroll.js";
 
-const HARDCODED_BYES = {
-    byes: [
-        { team: {teamName: "Broncos"}},
-        { team: {teamName: "Warriors"}},
-        { team: {teamName: "Knights"}},
-        { team: {teamName: "Cowboys"}},
-        { team: {teamName: "Eels"}},
-        { team: {teamName: "Panthers"}},
-        { team: {teamName: "Dragons"}}
-    ]
-}
-
 if (localStorage.getItem("sort") === null) {
     localStorage.setItem("sort", "points");
+}
+if (localStorage.getItem("historical") === null) {
+    localStorage.setItem("historical", "false");
 }
 
 await fetchGames();
@@ -26,27 +17,31 @@ setInterval(fetchGames, 6000);
 
 export async function fetchGames() {
     const sortKey = localStorage.getItem("sort");
+    const historical = localStorage.getItem("historical")
     let jsonData = {};
-    await fetch(`http://localhost:3000/data?sort=${sortKey}`)
+
+    await fetch(`http://localhost:3000/data?sort=${sortKey}&historical=${historical}`)
         .then(res => res.json())
         .then(data => jsonData = data)
+
     generateLadder(jsonData);
     generateGames(jsonData);
 }
 
 function generateLadder(jsonData) {
     const ladderRowContainer = document.querySelector(".ladder-row-container");
-    while (ladderRowContainer.children.length > 1) {
+    while (ladderRowContainer.children.length > 2) {
         ladderRowContainer.removeChild(ladderRowContainer.lastElementChild);
     }
     jsonData.ladder.teams.forEach(team => {
         ladderRowContainer.innerHTML += LadderRow(team);
     })
-    ladderRowContainer.children[1].classList.remove("rounded-tr-lg");
-    ladderRowContainer.children[8].classList.add("mb-4");
-    ladderRowContainer.children[8].classList.add("desktop:mb-8")
+    ladderRowContainer.children[2].classList.remove("rounded-tr-lg");
+    ladderRowContainer.children[9].classList.add("mb-4");
+    ladderRowContainer.children[9].classList.add("desktop:mb-8")
     const rows = ladderRowContainer.querySelectorAll(".stats-col");
     rows[rows.length-1].classList.remove("no-scrollbar");
+    updateRoundLabel(jsonData.round, jsonData.year);
     addScrollListeners();
     addHeaderListeners();
 }
@@ -82,10 +77,34 @@ function addHeaderListeners() {
     })
 }
 
+function updateRoundLabel(round, year) {
+    const lbl = document.getElementById("historical-label");
+    lbl.textContent = "Round " + round + ", " + year;
+}
+
 async function changeSortOrder(key) {
     if (key !== "points" && key !== "wins" && key !== "percent") {
         return;
     }
     localStorage.setItem("sort", key);
     await fetchGames();
+}
+
+const history = localStorage.getItem("historical");
+if (history === null) {
+    localStorage.setItem("historical", "false");
+}
+if (history === "true") {
+    alternateHistoryColour();
+}
+
+const historyBtn = document.getElementById("debug-btn");
+historyBtn.addEventListener("click", async () => {
+    localStorage.setItem("historical", localStorage.getItem("historical") === "true" ? "false": "true");
+    alternateHistoryColour();
+    fetchGames();
+})
+
+function alternateHistoryColour() {
+    document.documentElement.classList.toggle("history");
 }
