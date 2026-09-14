@@ -54,3 +54,4 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant history (&:where(.history, .history *));
+@custom-variant selected (&:where(.selected, .selected *));

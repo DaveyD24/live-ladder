@@ -59,20 +59,21 @@ function generateGames(jsonData) {
     gamesContainer.innerHTML += Bye(jsonData.byes);
 }
 
+//TODO: Bug when extracting buttons to global scope
 function addHeaderListeners() {
     const winBtn = document.getElementById("win-sort");
     const percentBtn = document.getElementById("percent-sort");
     const pointsBtn = document.getElementById("points-sort");
     winBtn.addEventListener("click", async () => {
-        changeSortOrder("wins");
+        changeSortOrder(winBtn, "wins");
         await fetchGames();
     })
     percentBtn.addEventListener("click", async () => {
-        changeSortOrder("percent");
+        changeSortOrder(percentBtn, "percent");
         await fetchGames();
     })
     pointsBtn.addEventListener("click", async () => {
-        changeSortOrder("points");
+        changeSortOrder(pointsBtn, "points");
         await fetchGames();
     })
 }
@@ -82,10 +83,25 @@ function updateRoundLabel(round, year) {
     lbl.textContent = "Round " + round + ", " + year;
 }
 
-async function changeSortOrder(key) {
+async function changeSortOrder(element, key) {
     if (key !== "points" && key !== "wins" && key !== "percent") {
         return;
     }
+
+    if (element.classList.contains("selected")) {
+        return;
+    }
+
+    const winBtn = document.getElementById("win-sort");
+    const percentBtn = document.getElementById("percent-sort");
+    const pointsBtn = document.getElementById("points-sort");
+    const headers = [winBtn, percentBtn, pointsBtn]
+
+    for (const e of headers) {
+        e.classList.remove("selected");
+    }
+    element.classList.add("selected");
+
     localStorage.setItem("sort", key);
     await fetchGames();
 }

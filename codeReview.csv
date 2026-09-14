@@ -1,7 +1,7 @@
 Feedback,Category,Status
 Team names are still too long on the ladder on mobile,Frontend,Resolved
 Not immediately obvious that you can use the points header to sort the ladder,Frontend,Unresolved
-Points header doesn't show which item is selected,Frontend,Unresolved
+Points header doesn't show which item is selected,Frontend,Resolved
 Better to have teams/game data stored client-side in localStorage,Architecture,Future
 Only hit the API if there is a live game ongoing,Backend,Future
 Invalid query params shouldn't return a 404. Check what the correct response code is,Backend,Unresolved
