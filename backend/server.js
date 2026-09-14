@@ -35,6 +35,7 @@ app.listen(PORT, async () => {
     }, REFRESH_RATE_SECONDS * 1000);
 })
 
+//Move this into the cache class?
 async function updateData(dataSource, round, season) {
     Cache.clear(dataSource);
 

@@ -1,4 +1,4 @@
-import { halfTimeScores } from "./data/scores.js";
+import { halfTimeScores } from "./static/scores.js";
 //TODO: Refactor to class?
 
 const FIRST_VALID_HALFTIME_YEAR = 2013;
