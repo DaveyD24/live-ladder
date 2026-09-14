@@ -1,5 +1,5 @@
 Feedback,Category,Status
-Team names are still too long on the ladder on mobile,Frontend,Unresolved
+Team names are still too long on the ladder on mobile,Frontend,Resolved
 Not immediately obvious that you can use the points header to sort the ladder,Frontend,Unresolved
 Points header doesn't show which item is selected,Frontend,Unresolved
 Better to have teams/game data stored client-side in localStorage,Architecture,Future
@@ -14,3 +14,4 @@ Refactor Cache.js to a class,Backend,Unresolved
 "Separate out package.json. One for the frontend, one for the backend. (This could be what's causing the import issues on the frontend javascript)",Architecture,Unresolved
 Add null checks for scraper script,Scraper,Unresolved
 Cap CurrentRound() to 27,Backend,Unresolved
+Add favicon,Frontend,Unresolved

@@ -26,9 +26,8 @@ function render(team) {
             <div class="flex flex-row h-full justify-start items-center min-w-52 md:min-w-80 lg:min-w-96 desktop:min-w-85">
                 <span class="${team.isPlaying ? 'live-patch' : ''} h-12 desktop:h-18 min-w-2.5 rounded-l-sm inline-block ${colourPairs[team.localName]}"></span>
                 <img src="image/${team.teamName.replace(" ", "").toLowerCase()}.png" class="w-8.75 desktop:w-12.5 ml-2 mr-2 lg:ml-4 lg:mr-4">
-                <span class="md:hidden lg:text-xl font-bold tracking-tight dark:text-zinc-50 mr-2">${team.shorthand ?? team.localName.toUpperCase()}</span>
-                <span class="hidden md:block lg:text-xl font-bold tracking-tight dark:text-zinc-50 mr-2">${team.localName.toUpperCase()}</span>
-                <span class="text-xs lg:text-sm tracking-widest dark:text-zinc-100">${team.teamName.toUpperCase()}</span>
+                <span class="lg:text-xl font-bold tracking-tight dark:text-zinc-50 mr-2">${team.localName.toUpperCase()}</span>
+                <span class="hidden md:block text-xs lg:text-sm tracking-widest dark:text-zinc-100">${team.teamName.toUpperCase()}</span>
             </div>
             <span class="${team.isPlaying ? colourPairs["playing"] : colourPairs["normal"]} ml-8 h-12 desktop:h-18 inline-block w-[calc(100%-900px)] border-t border-b border-slate-200 dark:border-neutral-600"></span>
             <ul class="stats-col h-12 desktop:h-16 flex flex-nowrap overflow-x-auto w-full max-w-120 dark:text-zinc-100 no-scrollbar">
