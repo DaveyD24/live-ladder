@@ -6,7 +6,7 @@ export function CurrentRound() {
     const diffMs = now - startDate;
     const weeks = diffMs / (1000 * 60 * 60 * 24 * 7);
 
-    return Math.floor(weeks) + 1;
+    return Math.min(Math.floor(weeks) + 1, 27);
 }
 
 export function randomSeason(minYear, maxYear) {
