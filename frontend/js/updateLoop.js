@@ -3,6 +3,7 @@ import UpcomingGame from "./components/UpcomingGame.js";
 import LiveGame from "./components/LiveGame.js";
 import LadderRow from "./components/LadderRow.js";
 import Bye from "./components/Bye.js";
+import DeadLadder from "./components/DeadLadder.js";
 import { addScrollListeners } from "./ladderScroll.js";
 
 if (localStorage.getItem("sort") === null) {
@@ -32,6 +33,10 @@ function generateLadder(jsonData) {
     const ladderRowContainer = document.querySelector(".ladder-row-container");
     while (ladderRowContainer.children.length > 2) {
         ladderRowContainer.removeChild(ladderRowContainer.lastElementChild);
+    }
+    if (jsonData.ladder === undefined) {
+        ladderRowContainer.innerHTML += DeadLadder();
+        return;
     }
     jsonData.ladder.teams.forEach(team => {
         ladderRowContainer.innerHTML += LadderRow(team);
