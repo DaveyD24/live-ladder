@@ -9,19 +9,26 @@ import { addScrollListeners } from "./ladderScroll.js";
 if (localStorage.getItem("sort") === null) {
     localStorage.setItem("sort", "points");
 }
-if (localStorage.getItem("historical") === null) {
-    localStorage.setItem("historical", "false");
+
+if (localStorage.getItem("historical") === "true") {
+    alternateHistoryColour();
 }
 
 await fetchGames();
 setInterval(fetchGames, 6000);
 
 export async function fetchGames() {
-    const sortKey = localStorage.getItem("sort");
-    const historical = localStorage.getItem("historical")
+
+    const params = new URLSearchParams();
+    params.set("sort", localStorage.getItem("sort"));
+
+    if (localStorage.getItem("historical") === "true") {
+        params.set("historical", "enabled");
+    }
+
     let jsonData = {};
 
-    await fetch(`http://localhost:3000/data?sort=${sortKey}&historical=${historical}`)
+    await fetch(`http://localhost:3000/data?${params}`)
         .then(res => res.json())
         .then(data => jsonData = data)
 
@@ -111,17 +118,10 @@ async function changeSortOrder(element, key) {
     await fetchGames();
 }
 
-const history = localStorage.getItem("historical");
-if (history === null) {
-    localStorage.setItem("historical", "false");
-}
-if (history === "true") {
-    alternateHistoryColour();
-}
 
 const historyBtn = document.getElementById("debug-btn");
 historyBtn.addEventListener("click", async () => {
-    localStorage.setItem("historical", localStorage.getItem("historical") === "true" ? "false": "true");
+    localStorage.setItem("historical", localStorage.getItem("historical") === "true" ? "false" : "true");
     alternateHistoryColour();
     fetchGames();
 })

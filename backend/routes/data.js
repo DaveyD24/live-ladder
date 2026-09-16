@@ -6,13 +6,14 @@ const router = Router();
 
 router.get('/data', async (req, res, next) => {
     if (!["points", "wins", "percent"].includes(req.query.sort)) {
-        const error = new ValidationError("Ladder is only sortable by points, wins or percent", 400);
+        const error = new ValidationError("Malformed sort parameter", 400);
         return next(error);
     }
-    if (!["true", "false", ""].includes(req.query.historical)) {
-        res.status(400);
+    if (req.query.historical !== undefined && req.query.historical !== "enabled") {
+        const error = new ValidationError("Malformed historical parameter", 400)
+        return next(error);
     }
-    let cacheSource = req.query.historical === "true" ? Cache["historical"] : Cache["current"];
+    let cacheSource = req.query.historical === "enabled" ? Cache["historical"] : Cache["current"];
 
     res.json({
         "ladder": cacheSource.data.ladder[req.query.sort],
