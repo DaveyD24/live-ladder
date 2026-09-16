@@ -41,7 +41,7 @@ function generateLadder(jsonData) {
     while (ladderRowContainer.children.length > 2) {
         ladderRowContainer.removeChild(ladderRowContainer.lastElementChild);
     }
-    if (jsonData.ladder === undefined) {
+    if (jsonData.ladder === undefined || jsonData.ladder.teams === undefined) {
         ladderRowContainer.innerHTML += DeadLadder();
         return;
     }
