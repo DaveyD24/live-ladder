@@ -28,13 +28,13 @@ export function generateLadder(output, ladderData, roundData) {
         setWinPercentage(team);
     })
     
-    output.ladder.points = structuredClone(ladderData)
-    output.ladder.wins = structuredClone(ladderData);
-    output.ladder.percent = structuredClone(ladderData)
+    output.data.ladder.points = structuredClone(ladderData)
+    output.data.ladder.wins = structuredClone(ladderData);
+    output.data.ladder.percent = structuredClone(ladderData)
 
-    output.ladder.points.teams.sort((a,b) => (b.points - a.points) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
-    output.ladder.wins.teams.sort((a,b) => (b.wins - a.wins) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
-    output.ladder.percent.teams.sort((a,b) => (b.winPercent - a.winPercent) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
+    output.data.ladder.points.teams.sort((a,b) => (b.points - a.points) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
+    output.data.ladder.wins.teams.sort((a,b) => (b.wins - a.wins) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
+    output.data.ladder.percent.teams.sort((a,b) => (b.winPercent - a.winPercent) || (b.differential - a.differential) || (b.pointsAgainst + a.pointsAgainst));
 
 }
 

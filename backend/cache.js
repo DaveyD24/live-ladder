@@ -1,73 +1,73 @@
 import { halfTimeScores } from "./static/scores.js";
-//TODO: Refactor to class?
+class Cache {
+    static FIRST_VALID_HALFTIME_YEAR = 2013;
 
-const FIRST_VALID_HALFTIME_YEAR = 2013;
-
-export let data = {
-    ladder: {
-        points: [],
-        wins: [],
-        percent: []
-    },      
-    games: [],
-    byes: [],
-    year: 0,
-    round: 0
-}
-export let historical_snapshot = {
-    ladder: {
-        points: [],
-        wins: [],
-        percent: []
-    },      
-    games: [],
-    byes: [],
-    year: 0,
-    round: 0
-}
-
-export function clear(data) {
-    data.ladder = {};
-    data.games = [];
-    data.byes = [];
-}
-
-export function hoistLiveGame(data) {
-    let liveGameIndex = -1;
-    for (let i = 0; i < data.games.length; i++) {
-        const game = data.games[i];
-        if (game.matchState !== "COMPLETED" && game.matchState !== "UPCOMING") {
-            liveGameIndex = i;
-            break;
+    constructor() {
+        this.data = {
+            ladder: {
+                points: [],
+                wins: [],
+                percent: []
+            },      
+            games: [],
+            byes: [],
+            season: 0,
+            round: 0
         }
     }
-    if (liveGameIndex !== -1) {
-        data.games.unshift(data.games.splice(liveGameIndex, 1)[0]);
-    }
-}
 
-//Just modify the object directly
-export function setRoundAndYear(data, round, year) {
-    data.round = round;
-    data.year = year;
-}
-
-export function rewriteGameHistory() {
-    if (historical_snapshot.year < FIRST_VALID_HALFTIME_YEAR) {
-        return;
-    }
-    const stop = Math.floor(Math.random() * (historical_snapshot.games.length - 1)) + 1;
-
-    for (let i = 0; i < historical_snapshot.games.length; i++) {
-        const game = historical_snapshot.games[i];
-        if (i === stop) {
-            game.matchState = "HALFTIME";
-            //TODO: constants
-            game.homeTeam.score = parseInt(halfTimeScores[historical_snapshot.year][historical_snapshot.round][stop].home);
-            game.awayTeam.score = parseInt(halfTimeScores[historical_snapshot.year][historical_snapshot.round][stop].away);
+    clear() {
+        this.data.ladder = {
+            points: [],
+            wins: [],
+            percent: []
         }
-        if (i > stop) {
-            game.matchState = "UPCOMING";
+        this.data.games = []
+        this.data.byes = []
+    }
+
+    hoistLiveGame() {
+        let liveGameIndex = -1;
+        for (let i = 0; i < this.data.games.length; i++) {
+            const game = this.data.games[i];
+            if (game.matchState !== "COMPLETED" && game.matchState !== "UPCOMING") {
+                liveGameIndex = i;
+                break;
+            }
+        }
+        if (liveGameIndex !== -1) {
+            this.data.games.unshift(this.data.games.splice(liveGameIndex, 1)[0]);
         }
     }
+
+    setRoundAndSeason(round, season) {
+        this.data.round = round;
+        this.data.season = season;
+    }
+
+    rewriteGameHistory() {
+        if (this.data.season < Cache.FIRST_VALID_HALFTIME_YEAR || this.data.season == 2026) {
+            return;
+        }
+        const stop = Math.floor(Math.random() * (this.data.games.length - 1)) + 1;
+        for (let i = 0; i < this.data.games.length; i++) {
+            const game = this.data.games[i];
+            if (i === stop) {
+                game.matchState = "HALFTIME";
+                const gameData = halfTimeScores[this.data.season][this.data.round][stop];
+                game.homeTeam.score = parseInt(gameData.home);
+                game.awayTeam.score = parseInt(gameData.away);
+            }
+            if (i > stop) {
+                game.matchState = "UPCOMING";
+            }
+        }
+    }
+
 }
+
+const caches = {
+    current: new Cache(),
+    historical: new Cache()
+}
+export default caches;
