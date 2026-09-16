@@ -28,7 +28,7 @@ export async function fetchGames() {
 
     let jsonData = {};
 
-    await fetch(`http://localhost:3000/data?${params}`)
+    await fetch(`https://live-ladder-backend.onrender.com/data?${params}`)
         .then(res => res.json())
         .then(data => jsonData = data)
 
