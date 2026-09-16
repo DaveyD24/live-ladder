@@ -13,5 +13,5 @@ Refactor Cache.js to a class,Backend,Unresolved
 "Services folder doesn't fully align with what ""services"" means in web development. Research a better way to structure this folder.",Backend,Unresolved
 "Separate out package.json. One for the frontend, one for the backend. (This could be what's causing the import issues on the frontend javascript)",Architecture,Unresolved
 Add null checks for scraper script,Scraper,Unresolved
-Cap CurrentRound() to 27,Backend,Unresolved
-Add favicon,Frontend,Unresolved
+Cap CurrentRound() to 27,Backend,Resolved
+Add favicon,Frontend,Resolved
