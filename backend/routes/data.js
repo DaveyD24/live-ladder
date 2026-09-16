@@ -1,11 +1,13 @@
 import {Router} from 'express';
-import Cache from "../cache.js";
+import Cache from "../classes/Cache.js";
+import ValidationError from '../classes/ValidationError.js';
 
 const router = Router();
 
-router.get('/data', async (req, res) => {
+router.get('/data', async (req, res, next) => {
     if (!["points", "wins", "percent"].includes(req.query.sort)) {
-        res.status(400);
+        const error = new ValidationError("Ladder is only sortable by points, wins or percent", 400);
+        return next(error);
     }
     if (!["true", "false", ""].includes(req.query.historical)) {
         res.status(400);

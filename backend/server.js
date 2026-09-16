@@ -8,7 +8,7 @@ import {clientLastSeen} from "./routes/ping.js";
 import {fetchGamesForRound, fetchLadderForRound} from "./services/apiFetcher.js";
 import { CurrentRound, randomRound, randomSeason } from './services/roundService.js';
 import { generateLadder } from "./services/ladderGenerator.js";
-import Cache from "./cache.js";
+import Cache from "./classes/Cache.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,6 +23,19 @@ app.use(cors());
 
 app.use('/', dataRoute);
 app.use('/', pingRoute);
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+
+    const statusCode = err.statusCode || 500;
+    const message = err.message || "Internal Server Error";
+
+    res.status(statusCode).json({
+        success: false,
+        status: statusCode,
+        message: message
+    });
+});
 
 app.listen(PORT, async () => {
     console.log(`Server running on port ${PORT}`);

@@ -1,12 +1,12 @@
 Feedback,Category,Status
 Team names are still too long on the ladder on mobile,Frontend,Resolved
-Not immediately obvious that you can use the points header to sort the ladder,Frontend,Unresolved
+Not immediately obvious that you can use the points header to sort the ladder,Frontend,Future
 Points header doesn't show which item is selected,Frontend,Resolved
 Better to have teams/game data stored client-side in localStorage,Architecture,Future
 Only hit the API if there is a live game ongoing,Backend,Future
 Invalid query params shouldn't return a 404. Check what the correct response code is,Backend,Unresolved
 Display a UI in place of the ladder when game data is being loaded (rather than the ladder squishing to 0px height),Frontend,Resolved
-"Error handling can be done in express with a global error route. Always return a reason for the error, even if you only expect yourself to be interacting with that endpoint",Backend,Unresolved
+"Error handling can be done in express with a global error route. Always return a reason for the error, even if you only expect yourself to be interacting with that endpoint",Backend,Resolved
 Historical parameter should have a strict default of off and then a keyword for turning it on (enabled),Backend,Unresolved
 Refactor Cache.js to a class,Backend,Resolved
 "If it is clear that only 2 specific instances of the Cache class should exist in the program, you can use a singleton with 2 instances",Backend,Resvoled

@@ -1,4 +1,4 @@
-import { halfTimeScores } from "./static/scores.js";
+import { halfTimeScores } from "../static/scores.js";
 class Cache {
     static FIRST_VALID_HALFTIME_YEAR = 2013;
 
@@ -38,11 +38,6 @@ class Cache {
         if (liveGameIndex !== -1) {
             this.data.games.unshift(this.data.games.splice(liveGameIndex, 1)[0]);
         }
-    }
-
-    setRoundAndSeason(round, season) {
-        this.data.round = round;
-        this.data.season = season;
     }
 
     rewriteGameHistory() {
