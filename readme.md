@@ -1,6 +1,6 @@
 # NRL Live Ladder
 
-NRL Live Ladder is **LIVE** at: [nrlladder.live](nrlladder.live)
+NRL Live Ladder is **LIVE** at: [nrlladder.live](https://www.nrlladder.live)
 
 Live ladder is a project developed in `Tailwind` and `Nodejs` to visualise the NRL ladder midgame. Live ladders main use-case is for NRL fanatics and overthinkers to understand how the current result of a game will effect the ladder.
 
